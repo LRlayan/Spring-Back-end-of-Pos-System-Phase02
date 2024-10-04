@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/stylesheet/loginCSSFile.css">
+
+    <style>
+
+        /* Styles for Laptop (769px to 1024px) */
+        @media all and (min-width: 769px) and (max-width: 1024px) {
+            #imageParent{
+                width: 45vw;
+                height: 545px;
+            }
+
+            .loginImage{
+                width: 600px;
+                height: 679px;
+                margin-bottom: 0;
+            }
+
+            #text{
+                -webkit-text-fill-color: white;
+                font-weight: bold;
+
+                position: relative;
+                bottom: 22rem;
+                left: 9.5rem;
+
+                opacity: 100%;
+            }
+
+            #signUpParent{
+                position: relative;
+                top: 1rem;
+                left: 32rem;
+
+                width: 0px;
+            }
+
+            #signUp{
+                text-align: right;
+                -webkit-text-fill-color: #590067;
+
+                position: absolute;
+                left: -2rem;
+                top: 0;
+                padding-right: 8px;
+                width: 80px;
+            }
+
+            #logoParent{
+                width: 20rem;
+                aspect-ratio: 1/1;
+
+                position: absolute;
+                top: 3rem;
+                left: 10rem;
+            }
+
+            #logo{
+                width: 130px;
+                aspect-ratio: 1/1;
+
+                border-radius: 100px;
+                border:2px solid #590067;
+            }
+
+            #parent{
+                width: 1358px;
+                height: 589px;
+            }
+
+            #position{
+                position: relative;
+                top: -36rem;
+                left: 47.5rem;
+            }
+
+            #loginLabel{
+                position: absolute;
+                top: 13rem;
+                left: 12rem;
+            }
+
+            #username{
+                position: absolute;
+                top: 17rem;
+                left: 10px;
+                font-size: 21px;
+            }
+
+            #password{
+                position: absolute;
+                top: 23rem;
+                left: 10px;
+                font-size: 21px;
+            }
+
+            #forgetPassword{
+                position: absolute;
+                top: 28.3rem;
+                right: 74px;
+            }
+
+            #labelForgetPassword{
+                -webkit-text-fill-color: black;
+            }
+
+            #loginBtnParent{
+                position: absolute;
+                top: 32rem;
+                left: 10rem;
+            }
+
+            #loginBtn{
+                background-color: #590067;
+                -webkit-text-fill-color: white;
+                width: 150px;
+
+                border: 0;
+            }
+        }
+
+        /* Styles for Laptop Large (1367px to 1440px) */
+        @media all and (min-width: 1367px) and (max-width: 1440px) {
+            #imageParent{
+                width: 45vw;
+                height: 545px;
+            }
+
+            .loginImage{
+                width: 40vw;
+                height: 100vh;
+                margin-bottom: 0;
+            }
+
+            #text{
+                -webkit-text-fill-color: white;
+                font-weight: bold;
+
+                position: relative;
+                bottom: 21rem;
+                left: 7.5rem;
+
+                opacity: 100%;
+            }
+
+            #signUpParent{
+                position: relative;
+                top: 1rem;
+                left: 37rem;
+
+                width: 100px;
+            }
+
+            #signUp{
+                text-align: right;
+                -webkit-text-fill-color: #590067;
+
+                position: absolute;
+                left: 2rem;
+                top: 0;
+                padding-right: 8px;
+                width: 100px;
+            }
+
+            #logoParent{
+                width: 20rem;
+                aspect-ratio: 1/1;
+
+                position: absolute;
+                top: 3rem;
+                left: 17rem;
+            }
+
+            #logo{
+                width: 130px;
+                aspect-ratio: 1/1;
+
+                border-radius: 100px;
+                border:2px solid #590067;
+            }
+
+            #parent{
+                width: 1358px;
+                height: 589px;
+            }
+
+            #position{
+                position: relative;
+                top: -36rem;
+                left: 43rem;
+            }
+
+            #loginLabel{
+                position: absolute;
+                top: 13rem;
+                left: 19rem;
+            }
+
+            #username{
+                position: absolute;
+                top: 17rem;
+                left: 10px;
+            }
+
+            #password{
+                position: absolute;
+                top: 23rem;
+                left: 10px;
+            }
+
+            #forgetPassword{
+                position: absolute;
+                top: 28rem;
+                right: 103px;
+            }
+
+            #labelForgetPassword{
+                -webkit-text-fill-color: black;
+            }
+
+            #loginBtnParent{
+                position: absolute;
+                top: 32rem;
+                left: 18rem;
+            }
+
+            #loginBtn{
+                background-color: #590067;
+                -webkit-text-fill-color: white;
+                width: 150px;
+
+                border: 0;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <section>
+        <div id="parent" class="col-6">
+            <div id="imageParent" class="col-6">
+                <img class="loginImage" src="../assets/image/loginPage.jpg" alt="shop image" title="shop image">
+                <h2 id="text" class="rise-text">High Quality Goods</h2>
+            </div>
+        </div>
+
+        <div id="position" class="col-6">
+            <div id="signUpParent">
+                <a href="signupPage.html"><h5 id="signUp">Sign up</h5></a>
+            </div>
+
+            <div id="logoParent">
+                <img id="logo" src="../assets/image/logo.png" alt="logo" title="GroStore.lk">
+            </div>
+
+            <div id="loginLabel">
+                <h2>Login</h2>
+            </div>
+
+            <div class="mb-3 col-10" id="username">
+                <label for="formGroupExampleInput" class="form-label">Username</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="username">
+            </div>
+            <div class="mb-3 col-10" id="password">
+                <label for="formGroupExampleInput2" class="form-label">Password</label>
+                <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="password">
+            </div>
+
+            <div id="forgetPassword">
+                <a href="forgetPassword.html"><h6 id="labelForgetPassword">forget password</h6></a>
+            </div>
+
+            <div id="loginBtnParent">
+                <a href="../index.html"> <button type="button" id="loginBtn" class="btn btn-primary btn-size">Login</button></a>
+            </div>
+        </div>
+    </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
