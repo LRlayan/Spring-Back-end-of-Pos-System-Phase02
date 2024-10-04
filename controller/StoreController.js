@@ -1,0 +1,361 @@
+import Store from "../model/Store.js";
+import {customer, orders, store} from "../db/DB.js"
+
+let clickTableRow = 0;
+
+let checkCode = false;
+let checkName = false;
+let checkQTY = false;
+let checkPrice = false;
+
+let code = $('#itemCodeS').val()
+let itemName = $('#itemNameS').val()
+let qty = $('#qty').val()
+let price = $('#priceS').val()
+var orderQTY = 0;
+
+window.onload = loadTable();
+
+$('#submitStore').on('click' , ()=>{
+    $('#submitStore').prop('disabled' , true);
+    checkCode = false;
+    checkName = false;
+    checkQTY = false;
+    checkPrice = false;
+
+    let code = $('#itemCode').val();
+    let name = $('#itemName').val();
+    let qTYOnHand = $('#inputQTY').val();
+    let price = $('#unitPrice').val();
+
+    // let storeDetail = new Store(itemCode,itemName,QTYOnHand,unitPrice);
+    // store.push(storeDetail);
+    const ItemDTO = {
+        itemCode : code,
+        itemName : name,
+        QTYOnHand : qTYOnHand,
+        unitPrice : price
+    }
+
+    console.log(ItemDTO);
+    valuesGetOrSendInDatabase(ItemDTO , "POST");
+    loadTable();
+    clearForm();
+})
+
+$('#storeTable').on('click', 'tr', function () {
+
+    let code = $(this).find(".s-code").text();
+    let name = $(this).find(".s-name").text();
+    let qty = $(this).find(".s-qty").text();
+    let price = $(this).find(".s-price").text();
+
+    clickTableRow = $(this).index();
+
+    $('#itemCodeS').val(code);
+    $('#itemNameS').val(name);
+    $('#qty').val(qty);
+    $('#priceS').val(price);
+
+    $('#itemCodeR').val(code);
+    $('#itemNameR').val(name);
+});
+
+$('#updateS').on('click' , ()=>{
+    event.preventDefault();
+    let itemCode = $('#itemCodeS').val();
+    let itemName = $('#itemNameS').val();
+    let QTYOnHand = $('#qty').val();
+    let unitPrice = $('#priceS').val();
+
+    let ItemDTO = {
+        itemCode : itemCode,
+        itemName : itemName,
+        QTYOnHand : QTYOnHand,
+        unitPrice : unitPrice
+    }
+
+    valuesGetOrSendInDatabase(ItemDTO , "PUT");
+
+    loadTable();
+    clearForm();
+
+    $('#updateS').prop('disabled' , true);
+});
+
+$('#deleteS').on('click',()=>{
+    event.preventDefault();
+
+    $('#selectItemCode').empty();
+
+    for (let i = 0; i < store.length; i++) {
+        $('#selectItemCode').append($('<option>').text(store[i].itemCode));
+    }
+
+    let code = $('#itemCodeR').val();
+
+    let ItemDTO = {
+        itemCode : code
+    }
+
+    valuesGetOrSendInDatabase(ItemDTO , "DELETE");
+
+    $('#deleteS').prop('disabled' , true);
+    loadTable();
+    clearForm();
+});
+
+function loadTable(){
+    valuesGetOrSendInDatabase("","GET","getData");
+}
+
+function valuesGetOrSendInDatabase(ItemDTO , methodType , getVal){
+    
+    const itemDTOJson = JSON.stringify(ItemDTO);
+    console.log(itemDTOJson);
+
+    const http = new XMLHttpRequest();
+    http.onreadystatechange =() =>{
+        if (http.readyState == 4) {
+            if (http.status == 200) {
+                var jsonTypeResp = JSON.stringify(http.responseText);   
+                
+                if (getVal === "getData") {
+                    const itemDetails = JSON.parse(http.responseText);
+
+                    $('#storeTable').empty();
+                    itemDetails.map(function (storeDetails){
+                        let record = `<tr>
+                                                <td class="s-code orderTableBody">${storeDetails.itemCode}</td>  
+                                                <td class="s-name orderTableBody">${storeDetails.itemName}</td>  
+                                                <td class="s-qty orderTableBody">${storeDetails.QTYOnHand}</td>  
+                                                <td class="s-price orderTableBody">${storeDetails.unitPrice}</td>  
+                                            </tr>`
+                        $('#storeTable').append(record);
+                    });   
+                }else{
+                    console.log(jsonTypeResp);
+                }
+            }else{
+                console.error("Failed");
+                console.error("Status Received" , http.status);
+                console.error("Processing Stage" , http.readyState);
+            }
+        }else{
+            console.log("Processing stage", http.readyState);
+        }
+    }
+    http.open(`${methodType}`,"http://localhost:8080/groStore_pos_system_back_end_war_exploded/item",true);
+    if (getVal === "getData") {
+        http.send(); 
+    }else{
+        http.setRequestHeader("Content-Type","application/json");
+        http.send(itemDTOJson);  
+    }
+}
+
+$(document).ready(function(){
+    $("#storeSearch").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#storeTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+    });
+});
+
+function clearForm(){
+    $('#itemCode').val("");
+    $('#itemName').val("");
+    $('#inputQTY').val("");
+    $('#unitPrice').val("");
+
+    $('#itemCodeS').val("");
+    $('#itemNameS').val("");
+    $('#qty').val("");
+    $('#priceS').val("");
+
+    $('#itemCodeR').val("");
+    $('#itemNameR').val("");
+}
+
+$('#newModal').on('shown.bs.modal', function() {
+    $('#submitStore').prop('disabled' , true);
+    validation('#itemCode','#itemName','#inputQTY','#unitPrice','#submitStore');
+});
+
+$('#updateModal').on('shown.bs.modal', function() {
+    checkEmptyFieldUpdateModal('#updateS');
+    validation('#itemCodeS','#itemNameS','#qty','#priceS','#updateS');
+});
+
+$('#removeModalStore').on('shown.bs.modal', function() {
+    $('#itemCodeR').prop('disabled' , true);
+    $('#itemNameR').prop('disabled' , true);
+    checkEmptyFieldRemoveModal('#deleteS');
+});
+
+function checkEmptyFieldUpdateModal(btn){
+    code = $('#itemCodeS').val();
+    itemName = $('#itemNameS').val();
+    qty = $('#qty').val();
+    price = $('#priceS').val();
+
+    if (code == '' && itemName == '' && qty == '' && price == ''){
+        $(btn).prop('disabled' , true);
+    }else {
+        $(btn).prop('disabled' , false);
+
+        checkCode = true;
+        checkName = true;
+        checkQTY = true;
+        checkPrice = true;
+    }
+}
+
+function checkEmptyFieldRemoveModal(btn){
+
+    code = $('#itemCodeR').val();
+    itemName = $('#itemNameR').val();
+
+    if (code == '' && itemName == ''){
+        $(btn).prop('disabled' , true);
+    }else {
+        $(btn).prop('disabled' , false);
+
+        checkCode = true;
+        checkName = true;
+        checkQTY = true;
+        checkPrice = true;
+    }
+}
+
+function validation(sCode,sName,sQty,sPrice,btnId){
+    (() => {
+        'use strict'
+
+        $('.s-code').css({display: 'none'});
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('click', event => {
+
+                $(sCode).on('input' , ()=>{
+                var code = $(sCode).val();
+
+                if(isDuplicated(code)){
+                        $('.s-code').text('Duplicate item code. Please enter a unique item code.');
+                        $('.s-code').css({ display: 'block' });
+                        $(sCode).css({ border: '1px solid red' });
+                        checkCode = false;
+                } else if (code.startsWith('I00-')) {
+                        const numericPart = code.substring(6);
+
+                        if (!(/^\d+$/.test(numericPart))) {
+                            $('.s-code').text('Item Code must be minimum 3 digit value followed by I00- format.');
+                            $('.s-code').css({ display: 'block' });
+                            $(sCode).css({border:'1px solid red'});
+                            checkCode = false;
+                        } else {
+                            $('.s-code').css({ display: 'none' });
+                            $(sCode).css({border:'1px solid green'});
+                            checkCode = true;
+                        }
+                    } else {
+                        $('.s-code').css({ display: 'block' });
+                        $(sCode).css({border:'1px solid red'});
+                        checkCode = false;
+                    }
+                    checkEmptyInputFields(checkCode,checkName,checkQTY,checkPrice,btnId);
+                });
+
+                $(sName).on('input' ,()=>{
+                    var name = $(sName).val().trim();
+                    if (name.length >= 5 && name.length <= 20 && /^[a-zA-Z ]+$/.test(name)) {
+                        $('.s-name').css({ display: 'none' });
+                        $(sName).css({ border: '1px solid green' });
+                        checkName = true;
+                    } else {
+                        $('.s-name').css({ display: 'block' });
+                        $(sName).css({ border: '1px solid red' });
+                        checkName = false;
+                    }
+                    checkEmptyInputFields(checkCode,checkName,checkQTY,checkPrice,btnId);
+                });
+
+                $(sQty).on('input' ,()=> {
+                    var qty = $(sQty).val();
+
+                    if (qty.length <= 15 && /^[0-9]+$/.test(qty)) {
+                        $('.s-qty').css({ display: 'none' });
+                        $(sQty).css({ border: '1px solid green' });
+                        checkQTY = true;
+                    } else {
+                        $('.s-qty').css({ display: 'block' });
+                        $(sQty).css({ border: '1px solid red' });
+                        checkQTY = false;
+                    }
+                    checkEmptyInputFields(checkCode,checkName,checkQTY,checkPrice,btnId);
+                });
+
+                $(sPrice).on('input' ,()=> {
+                    var price = $(sPrice).val();
+
+                    if (price.length <= 10 && /^[0-9.]+$/.test(price)) {
+                        $('.s-price').css({ display: 'none' });
+                        $(sPrice).css({ border: '1px solid green' });
+                        checkPrice = true;
+                    } else {
+                        $('.s-price').css({ display: 'block' });
+                        $(sPrice).css({ border: '1px solid red' });
+                        checkPrice = false;
+                    }
+                    checkEmptyInputFields(checkCode,checkName,checkQTY,checkPrice,btnId);
+                });
+
+                $(btnId).on('click',()=>{
+                    clearBorderColor(sCode,sName,sQty,sPrice);
+                })
+            }, false)
+        })
+    })()
+}
+
+function checkEmptyInputFields(sCode,sName,sQTY,sPrice,btnId){
+
+    if (sCode && sName && sQTY && sPrice){
+        $(btnId).prop('disabled' , false);
+    }else {
+        $(btnId).prop('disabled' , true);
+    }
+}
+
+function clearBorderColor(code,name,qty,price){
+    $(code).css({ border: '1px solid #cfcfcf'});
+    $(name).css({ border: '1px solid #cfcfcf'});
+    $(qty).css({ border: '1px solid #cfcfcf'});
+    $(price).css({ border: '1px solid #cfcfcf'});
+}
+
+$('#purchaseBtn').on('click',function (){
+
+    store.map(function (items){
+        orders.map(function (order){
+            if (items.itemCode === order.itemCode){
+                items.QTYOnHand -= order.orderQTY;
+            }
+        })
+    })
+    loadTable();
+})
+
+function isDuplicated(itemCode){
+    for (let i = 0; i < store.length; i++) {
+        if (store[i].itemCode === itemCode){
+            return true;
+        }
+    }
+    return false;
+}
