@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 public class OrderDetailDTO implements SuperDTO {
+    private String id;
     private String orderId;
     private LocalDate date;
     private String customerId;
