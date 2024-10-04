@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/stylesheet/dashboardCSSFile.css">
+    <link rel="stylesheet" href="assets/stylesheet/placeOrderCSSFile.css">
+    <link rel="stylesheet" href="assets/stylesheet/customerManageCSSFile.css">
+    <link rel="stylesheet" href="assets/stylesheet/buttonAnmation.css">
+    <link rel="stylesheet" href="assets/stylesheet/storeManageCSSFile.css">
+    <link rel="stylesheet" href="assets/stylesheet/placeOrderCSSFile.css">
+
+    <style>
+        @media all and (min-width: 769px) and (max-width: 1024px){
+
+            .tableTitle{
+                width: 200px;
+            }
+
+            #line1{
+                width: 280px;
+            }
+
+            #line2{
+               left: 242px;
+            }
+
+            #billBtn{
+                padding-left: 60px;
+            }
+
+            #addToCartBtn{
+                margin-top: 70px;
+            }
+
+            #DashGroStore{
+                font-size: 30px;
+            }
+
+            #DashGroStore{
+                -webkit-text-fill-color: #590067;
+                font-weight: bold;
+            }
+
+            #profileDropdown{
+                width: 75px;
+                position: relative;
+                left: -168px;
+            }
+
+            #dropdownList{
+                width: 250px;
+                height: 400px;
+            }
+
+            #dropdownImage{
+
+                width: 170px;
+                height: 150px;
+
+                border-radius: 100%;
+                position: relative;
+                left: 39px;
+            }
+
+            .textAlignCenter{
+                text-align: center;
+            }
+
+            .profileDetail{
+                -webkit-text-fill-color: gray;
+                position: relative;
+                left: 40px;
+                width: fit-content;
+            }
+
+            .signup{
+                -webkit-text-fill-color: #0066FF;
+                margin-top: 20px;
+            }
+
+            .logout{
+                text-align: center;
+                -webkit-text-fill-color: #590067;
+                font-weight: bold;
+
+                margin-bottom: 20px;
+            }
+
+            .headerPosition{
+                /*position: relative;*/
+                /*left: -10px;*/
+                /*top: 15.5px;*/
+                width: 600px;
+            }
+
+            .profile{
+                width: 78px;
+                height: 75px;
+
+                border-radius: 100%;
+                margin: 0;
+                padding: 0;
+
+                position: relative;
+                top: -15px;
+                left: 50px;
+            }
+
+
+            /*----------------------------------------------------------------------------------------------------------*/
+            .fonts{
+                font-family: Raleway;
+            }
+
+            .card{
+                width: 320px;
+                height: 164px;
+                background-color: white;
+                margin: auto;
+                border: 0;
+                margin-bottom: 5px;
+            }
+
+            .cardText{
+                text-align: center;
+                -webkit-text-fill-color: purple;
+                margin: 25px;
+                font: 25px "Raleway";
+            }
+
+            /*Search bar*/
+            .searchBarParent{
+                position: relative;
+                width: 95vw;
+                margin: 0;
+            }
+
+            #searchBar{
+                width: 81vw;
+                height: 50px;
+
+                position: absolute;
+                left: 10%;
+                top: 20px;
+            }
+
+            #searchInputField{
+                border-radius: 200px 0 0 200px;
+            }
+
+            .searchBtn{
+                border-radius: 200px;
+                width: 150px;
+                background-color: purple;
+                -webkit-text-fill-color: white;
+                border: 0;
+            }
+
+            .OrderTitle{
+                position: absolute;
+                top: 86px;
+                left: 55px;
+                font: 22px Raleway;
+                font-weight: bold;
+            }
+
+            .OrderTableHead{
+                background-color: #590067 !important;
+                -webkit-text-fill-color: white;
+                font: 18px Raleway;
+            }
+
+            .orderTableBody{
+                background-color: #FBDFFF!important;
+                -webkit-text-fill-color: black;
+            }
+
+            .orderDetailTable{
+                position: relative;
+                top: 86px;
+                margin: auto;
+
+                width: 89vw;
+            }
+
+            .w-900{
+                width: 900px;
+            }
+
+            .tableDiv{
+                max-height: 240px; /* Set the maximum height of the container */
+                overflow-y: auto; /* Enable vertical scrolling */
+            }
+
+            .tableDiv{
+                table-layout: fixed; /* Prevent the table from resizing its columns */
+                white-space: nowrap; /* Prevent text wrapping */
+                overflow-x: auto; /* Enable horizontal scrolling */
+                overflow-y: scroll;
+            }
+
+            #viewOrderBtnParent{
+                position: relative;
+                top: 96px;
+                left: 66px;
+                width: fit-content;
+            }
+
+            .footer{
+                font-family: Raleway;
+                height: fit-content;
+                position: relative;
+                top: 8.5rem;
+            }
+
+            #mainDivF{
+                width: 100vw;
+                height: 67vh;
+                margin: 0;
+                background-color: #3A0044;
+
+                position: relative;
+                top: 5px;
+                font: 18px Raleway;
+            }
+
+            #aboutUs{
+                -webkit-text-fill-color: white;
+                position: absolute;
+                top: 2%;
+                left: 44%;
+            }
+
+            #fDiv1{
+                -webkit-text-fill-color: white;
+                position: absolute;
+                top: 25%;
+                left: 15%;
+            }
+
+            #fDiv2{
+                -webkit-text-fill-color: white;
+                position: absolute;
+                top: 25%;
+                left: 45%;
+            }
+
+            #fDiv3{
+                -webkit-text-fill-color: white;
+                position: absolute;
+                top: 25%;
+                left: 72%;
+
+                width: fit-content;
+            }
+
+            #allRights{
+                position: absolute;
+                top: 90%;
+                left: 39%;
+                -webkit-text-fill-color: white;
+            }
+
+            #groStore{
+                position: absolute;
+                top: 84.5%;
+                left: 75%;
+                -webkit-text-fill-color: white;
+
+                font-size: 35px;
+            }
+
+            #socialMedia{
+                position: absolute;
+                top: 84%;
+                left: 12%;
+            }
+
+            #facebook{
+                width: 55px;
+                aspect-ratio: 1/1;
+
+                position: relative;
+            }
+
+            #instagram{
+                width: 40px;
+                aspect-ratio: 1/1;
+
+                position: relative;
+                left: 10px;
+            }
+
+            #whatsapp{
+                width: 39px;
+                aspect-ratio: 1/1;
+
+                position: relative;
+                left: 28px;
+            }
+
+            .margin{
+                margin: 0;
+            }
+
+            .padding{
+                padding: 0;
+            }
+
+            .position{
+                position: relative;
+            }
+
+            .tableTitleParent{
+                z-index: -1;
+                position: relative;
+                left: 700px;
+                top: 280px;
+                width: fit-content;
+            }
+
+            .viewWidth{
+                width: 98vw;
+                height: 8vh;
+            }
+
+            section p{
+                margin: 0;
+            }
+
+            .padding{
+                padding: 0!important;
+            }
+
+            /*modal*/
+            .updateTitleOrder{
+                position: absolute;
+                top: 15px;
+                left: 25%;
+            }
+
+            #line1UpdateOrder{
+                width: 230px;
+                height: 1px;
+                background-color: gray;
+
+                position: relative;
+                top: -20px;
+                left: 9rem;
+            }
+
+            .subTotal{
+
+            }
+
+            .discount{
+
+            }
+
+            .balance{
+
+            }
+
+            .textAlignRight{
+                text-align: right;
+            }
+
+            .textAlignCenter{
+                text-align: center;
+            }
+
+            /* Top and Bottom borders come in */
+            div.topBotomBordersIn span:before, div.topBotomBordersIn span:after
+            {
+                position: absolute;
+                left: 227px;
+                width: 20%;
+                height: 2px;
+                background: #590067;
+                content: "";
+                opacity: 0;
+                transition: all 0.3s;
+            }
+
+            div.topBotomBordersIn span:before
+            {
+                top: 0px;
+                transform: translateY(0px);
+            }
+
+            div.topBotomBordersIn span:after
+            {
+                left: 227px;
+                bottom: 0px;
+                transform: translateY(10px);
+            }
+        }
+
+        @media all and (min-width: 1025px) and (max-width: 1366px) {
+            .profile{
+                width: 78px;
+                height: 75px;
+
+                border-radius: 100%;
+                margin: 0;
+                padding: 0;
+
+                position: relative;
+                top: 0px;
+                left: 220px;
+            }
+
+            #dropdownList{
+                width: 250px;
+                height: 400px;
+                position: absolute;
+                left: 2.8rem;
+            }
+
+            .headerPosition{
+                position: relative;
+                left: 100px;
+                top: 0px;
+            }
+
+            #billBtn{
+                position: relative;
+                top: 16.7rem;
+                padding-left: 12rem;
+            }
+
+            /*customer manage update*/
+            .btn-update-customer span:before,
+            .btn-update-customer span:after {
+                /*top-left border color*/
+                position: absolute;
+                content: "";
+                left: 0;
+                top:0;
+                background-color: #fcba03;
+                box-shadow:
+                        -7px -7px 20px 0px rgba(255,255,255,.9),
+                        -4px -4px 5px 0px rgba(255,255,255,.9),
+                        7px 7px 20px 0px rgba(0,0,0,.2),
+                        4px 4px 5px 0px rgba(0,0,0,.3);
+                transition: all 0.3s ease;
+            }
+
+            .btn-update-customer:before,
+            .btn-update-customer:after {
+
+                /*right-bottom border color*/
+                position: absolute;
+                content: "";
+                right: 348px;
+                bottom: 0;
+                background-color:#fcba03;
+                box-shadow:
+                        -7px -7px 20px 0px rgba(255,255,255,.9),
+                        -4px -4px 5px 0px rgba(255,255,255,.9),
+                        7px 7px 20px 0px rgba(0,0,0,.2),
+                        4px 4px 5px 0px rgba(0,0,0,.3);
+                transition: all 0.3s ease;
+            }
+
+            .btn-update-customer:hover:after {
+                width: 18.3%;
+            }
+
+            .updateBtn-color{
+                background-color: #fcba03;
+            }
+
+            /*customer new button*/
+            .btn-new:before,
+            .btn-new:after {
+
+                /*right-bottom border color*/
+                position: absolute;
+                content: "";
+                right: 478px;
+                bottom: 0;
+                background-color:#03A100;
+                box-shadow:
+                        -7px -7px 20px 0px rgba(255,255,255,.9),
+                        -4px -4px 5px 0px rgba(255,255,255,.9),
+                        7px 7px 20px 0px rgba(0,0,0,.2),
+                        4px 4px 5px 0px rgba(0,0,0,.3);
+                transition: all 0.3s ease;
+            }
+
+            .btn-new span:before,
+            .btn-new span:after {
+                /*top-left border color*/
+                position: absolute;
+                content: "";
+                left: 0;
+                top: 0;
+                background-color: #03A100;
+                box-shadow:
+                        -7px -7px 20px 0px rgba(255,255,255,.9),
+                        -4px -4px 5px 0px rgba(255,255,255,.9),
+                        7px 7px 20px 0px rgba(0,0,0,.2),
+                        4px 4px 5px 0px rgba(0,0,0,.3);
+                transition: all 0.3s ease;
+            }
+
+            .newBtn-color{
+                background-color: #03A100;
+            }
+
+            .btn-new:hover:after {
+                width: 18.3%;
+            }
+
+            /*customer remove*/
+            /*remove button*/
+            .btn-remove-customer span:before,
+            .btn-remove-customer span:after {
+                /*top-left border color*/
+                position: absolute;
+                content: "";
+                left: 0;
+                top:0;
+                background-color: #e82902;
+                box-shadow:
+                        -7px -7px 20px 0px rgba(255,255,255,.9),
+                        -4px -4px 5px 0px rgba(255,255,255,.9),
+                        7px 7px 20px 0px rgba(0,0,0,.2),
+                        4px 4px 5px 0px rgba(0,0,0,.3);
+                transition: all 0.3s ease;
+            }
+
+            .btn-remove-customer:before,
+            .btn-remove-customer:after {
+
+                /*right-bottom border color*/
+                position: absolute;
+                content: "";
+                right: 220px;
+                bottom: 0;
+                background-color:#e82902;
+                box-shadow:
+                        -7px -7px 20px 0px rgba(255,255,255,.9),
+                        -4px -4px 5px 0px rgba(255,255,255,.9),
+                        7px 7px 20px 0px rgba(0,0,0,.2),
+                        4px 4px 5px 0px rgba(0,0,0,.3);
+                transition: all 0.3s ease;
+            }
+
+            .btn-remove-customer:hover:after {
+                width: 18.3%;
+            }
+
+            .removeBtn-color{
+                background-color: #e82902;
+            }
+        }
+
+        @media all and (min-width: 1367px) and (max-width: 1440px) {
+            #bill{
+                top: 145px;
+            }
+
+            #DashGroStore{
+                font-size: 30px;
+            }
+
+            #DashGroStore{
+                -webkit-text-fill-color: #590067;
+                font-weight: bold;
+            }
+
+            #profileDropdown{
+                width: 75px;
+                position: relative;
+                left: -10px;
+            }
+
+            #dropdownList{
+                width: 250px;
+                height: 400px;
+            }
+
+            #dropdownImage{
+
+                width: 170px;
+                height: 150px;
+
+                border-radius: 100%;
+                position: relative;
+                left: 39px;
+            }
+
+            .textAlignCenter{
+                text-align: center;
+            }
+
+            .profileDetail{
+                -webkit-text-fill-color: gray;
+                position: relative;
+                left: 40px;
+                width: fit-content;
+            }
+
+            .signup{
+                -webkit-text-fill-color: #0066FF;
+                margin-top: 20px;
+            }
+
+            .logout{
+                text-align: center;
+                -webkit-text-fill-color: #590067;
+                font-weight: bold;
+
+                margin-bottom: 20px;
+            }
+
+            .headerPosition{
+                position: relative;
+                left: 152px;
+                top: 0px;
+            }
+
+            .profile{
+                width: 78px;
+                height: 75px;
+
+                border-radius: 100%;
+                margin: 0;
+                padding: 0;
+
+                position: relative;
+                top: 0px;
+                left: 220px;
+            }
+
+
+            /*----------------------------------------------------------------------------------------------------------*/
+            .fonts{
+                font-family: Raleway;
+            }
+
+            .card{
+                width: 320px;
+                height: 162px;
+                background-color: white;
+                margin: auto;
+                border: 0;
+                margin-bottom: 5px;
+            }
+
+            .cardText{
+                text-align: center;
+                -webkit-text-fill-color: purple;
+                margin: 25px;
+                font: 25px "Raleway";
+            }
+
+            /*Search bar*/
+            .searchBarParent{
+                position: relative;
+                width: 95vw;
+                margin: 0;
+            }
+
+            #searchBar{
+                width: 81vw;
+                height: 50px;
+
+                position: absolute;
+                left: 10%;
+                top: 20px;
+            }
+
+            #searchInputField{
+                border-radius: 200px 0 0 200px;
+            }
+
+            .searchBtn{
+                border-radius: 200px;
+                width: 150px;
+                background-color: purple;
+                -webkit-text-fill-color: white;
+                border: 0;
+            }
+
+            .OrderTitle{
+                position: absolute;
+                top: 86px;
+                left: 55px;
+                font: 22px Raleway;
+                font-weight: bold;
+            }
+
+            .OrderTableHead{
+                background-color: #590067 !important;
+                -webkit-text-fill-color: white;
+                font: 18px Raleway;
+            }
+
+            .orderTableBody{
+                background-color: #FBDFFF!important;
+                -webkit-text-fill-color: black;
+            }
+
+            .orderDetailTable{
+                position: relative;
+                top: 86px;
+                margin: auto;
+
+                width: 89vw;
+            }
+
+            .tableDiv{
+                max-height: 240px; /* Set the maximum height of the container */
+                overflow-y: auto; /* Enable vertical scrolling */
+            }
+
+            .tableDiv{
+                table-layout: fixed; /* Prevent the table from resizing its columns */
+                white-space: nowrap; /* Prevent text wrapping */
+                overflow-x: auto; /* Enable horizontal scrolling */
+                overflow-y: scroll;
+            }
+
+            #viewOrderBtnParent{
+                position: relative;
+                top: 96px;
+                left: 66px;
+                width: fit-content;
+            }
+
+            .footer{
+                font-family: Raleway;
+                height: fit-content;
+                position: relative;
+                top: 8rem;
+            }
+
+            #mainDivF{
+                width: 100vw;
+                height: 65vh;
+                margin: 0;
+                background-color: #3A0044;
+
+                position: relative;
+                top: 5px;
+                font: 18px Raleway;
+            }
+
+            #aboutUs{
+                -webkit-text-fill-color: white;
+                position: absolute;
+                top: 2%;
+                left: 44%;
+            }
+
+            #fDiv1{
+                -webkit-text-fill-color: white;
+                position: absolute;
+                top: 25%;
+                left: 15%;
+            }
+
+            #fDiv2{
+                -webkit-text-fill-color: white;
+                position: absolute;
+                top: 25%;
+                left: 45%;
+            }
+
+            #fDiv3{
+                -webkit-text-fill-color: white;
+                position: absolute;
+                top: 25%;
+                left: 72%;
+
+                width: fit-content;
+            }
+
+            #allRights{
+                position: absolute;
+                top: 90%;
+                left: 39%;
+                -webkit-text-fill-color: white;
+            }
+
+            #groStore{
+                position: absolute;
+                top: 84.5%;
+                left: 75%;
+                -webkit-text-fill-color: white;
+
+                font-size: 35px;
+            }
+
+            #socialMedia{
+                position: absolute;
+                top: 84%;
+                left: 12%;
+            }
+
+            #facebook{
+                width: 55px;
+                aspect-ratio: 1/1;
+
+                position: relative;
+            }
+
+            #instagram{
+                width: 40px;
+                aspect-ratio: 1/1;
+
+                position: relative;
+                left: 10px;
+            }
+
+            #whatsapp{
+                width: 39px;
+                aspect-ratio: 1/1;
+
+                position: relative;
+                left: 28px;
+            }
+
+            .margin{
+                margin: 0;
+            }
+
+            .padding{
+                padding: 0;
+            }
+
+            .position{
+                position: relative;
+            }
+
+            #d1{
+                /*position: absolute;*/
+                /*width: fit-content;*/
+            }
+
+            .viewWidth{
+                width: 98vw;
+                height: 8vh;
+            }
+
+            section p{
+                margin: 0;
+            }
+
+            .padding{
+                padding: 0!important;
+            }
+
+            /*modal*/
+            .updateTitleOrder{
+                position: absolute;
+                top: 15px;
+                left: 25%;
+            }
+
+            #line1UpdateOrder{
+                width: 230px;
+                height: 1px;
+                background-color: gray;
+
+                position: relative;
+                top: -20px;
+                left: 9rem;
+            }
+
+            .subTotal{
+
+            }
+
+            .discount{
+
+            }
+
+            .balance{
+
+            }
+
+            .textAlignRight{
+                text-align: right;
+            }
+
+            .textAlignCenter{
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--header-->
+<section>
+    <header id="header">
+        <nav class="navbar shadow p-3 mb-5 bg-body-tertiary rounded padding" style="background-color: #ffffff;">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a id="DashGroStore" class="navbar-brand" href="#">GroStore</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse headerPosition" id="navbarNavAltMarkup">
+                        <div class="navbar-nav position container topBotomBordersIn">
+                            <span id="dashboard-tab" class="nav-link active" aria-current="page" href="">Dashboard &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span id="customer-tab" class="nav-link active">Customer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span id="store-tab" class="nav-link active">Store &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span id="placeOrder-tab" class="nav-link active">Place Order &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span class="nav-link active">About us &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                        <div id="profileDropdown" class="dropdown">
+                            <img class="profile btn-secondary dropdown-toggle" data-bs-toggle="dropdown" src="assets/image/profile.jpg" alt="profile" title="profile">
+
+                            <ul id="dropdownList" class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                <li><img id="dropdownImage" src="assets/image/profile.jpg" class="dropdown-item"></li>
+                                <li id="" class="textAlignCenter"><a class="dropdown-item logout" href="file/loginPage.html">Logout</a></li>
+                                <li><a class="dropdown-item profileDetail">Ramesh Layan</a></li>
+                                <li><a class="dropdown-item profileDetail">Beruwala</a></li>
+                                <li><a class="dropdown-item profileDetail">075 798 0223</a></li>
+                                <li class="textAlignCenter"><a class="dropdown-item signup" href="file/signupPage.html">Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </nav>
+    </header>
+</section>
+
+<!--Customer-->
+<section id="customer-sec" class="fonts">
+        <div class="container-fluid searchBarParent">
+            <div class="input-group mb-3 searchBar">
+                <input id="inputSearch" type="text" class="searchInputField form-control" placeholder="Search Customer" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary searchBtn" type="button" id="button-addonC">Search</button><!-- -->
+            </div>
+        </div>
+
+        <div class="row relativePosition crudButton">
+            <div class="absolutePosition">
+                <button class="noBorder buttons btn newButton btn-all btn-new newBtn-color" data-bs-toggle="modal" data-bs-target="#newModalCus" type="button"><span>New</span></button>
+                <button class="noBorder buttons btn updateButton btn-all btn-update-customer updateBtn-color" data-bs-toggle="modal" data-bs-target="#updateModalCus" type="button"><span>Update</span></button>
+                <button class="noBorder buttons btn removeButton btn-all btn-remove btn-remove-customer removeBtn-color" data-bs-toggle="modal" data-bs-target="#removeModal" type="button"><span>Remove</span></button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="d1" class="tableTitleParent margin">
+                <h4 class="tableTitle">View Customers</h4>
+            </div>
+        </div>
+
+        <div class="tableDiv customerTable">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th class="OrderTableHead" scope="col">Customer Id</th>
+                        <th class="OrderTableHead" scope="col">Customer Name</th>
+                        <th class="OrderTableHead" scope="col">City</th>
+                        <th class="OrderTableHead" scope="col">Telephone</th>
+                    </tr>
+                </thead>
+                <tbody id="customerTable">
+
+                </tbody>
+            </table>
+        </div>
+
+        <!--new modal-->
+        <div class="modal fade" id="newModalCus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalCusLabel">Add New Customer</h1><!-- -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!--    code here  -->
+                    <form class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-12">
+                            <label for="-inputCustomerId" class="form-label">Customer ID</label>
+                            <input type="text" class="inputCustomerId form-control" id="-inputCustomerId" required>
+                            <div class="c-id invalid-feedback">
+                                customer ID is a required field : Pattern C00-001.
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="_inputCustomerName" class="form-label">Customer Name</label>
+                            <input type="text" class="inputCustomerName form-control" id="_inputCustomerName" required>
+                            <div class="c-name invalid-feedback">
+                                Minimum 5, Max 20,Space Allowed and input only English letters.
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="inputCityC" class="form-label">City</label>
+                            <input type="text" class="inputCity form-control" id="inputCityC" required>
+                            <div class="c-city invalid-feedback">
+                                Max 25 letters and input only English letters.
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="inputTelephoneC" class="form-label">Telephone</label>
+                            <input type="text" class="inputTelephone form-control" id="inputTelephoneC" required>
+                            <div class="c-tel invalid-feedback">
+                                Please enter valid mobile number.Space Not Allowed,Max 10.
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
+                            <button id="submitC" class="btn btn-primary saveChanges" type="submit">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!--update modal-->
+        <div class="modal fade" id="updateModalCus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="-exampleModalLabel">Update Customer</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!--    code here  -->
+
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-12">
+                                <label for="inputCustomerIdU" class="form-label">Customer ID</label>
+                                <input type="text" class="form-control" id="inputCustomerIdU" required>
+                                <div class="c-id invalid-feedback">
+                                    customer ID is a required field : Pattern C00-001.
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputCustomerNameU" class="form-label">Customer Name</label>
+                                <input type="text" class="form-control" id="inputCustomerNameU" required>
+                                <div class="c-name invalid-feedback">
+                                    Minimum 5, Max 20,Space Allowed and input only English letters.
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="inputCityU" class="form-label">City</label>
+                                <input type="text" class="form-control" id="inputCityU" required>
+                                <div class="c-city invalid-feedback">
+                                    Max 25 letters and input only English letters.
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="inputTelephoneU" class="form-label">Telephone</label>
+                                <input type="text" class="form-control" id="inputTelephoneU" required>
+                                <div class="c-tel invalid-feedback">
+                                    Please enter valid mobile number.Space Not Allowed,Max 10.
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
+                                <button id="updateC" class="btn btn-primary saveChanges" type="submit">Update Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--remove modal-->
+        <div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id=" exampleModalLabel">Remove Customer</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!--   code here   -->
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-12">
+                                <label for="inputCustomerId" class="form-label">Customer ID</label>
+                                <input type="text" class="inputCustomerId form-control" id="inputCustomerId" required>
+                                <div class="c-id invalid-feedback">
+                                    customer ID is a required field : Pattern C00-001.
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputCustomerName" class="form-label">Customer Name</label>
+                                <input type="text" class="inputCustomerName form-control" id="inputCustomerName" required>
+                                <div class="c-name invalid-feedback">
+                                    Minimum 5, Max 20,Space Allowed and input only English letters.
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
+                                <button id="deleteC" class="btn btn-primary saveChanges" type="button">Remove Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!--Store-->
+<section id ="store-sec">
+    <div class="container-fluid searchBarParent">
+        <div class="input-group mb-3 searchBar">
+            <input id="storeSearch" type="text" class="searchInputField form-control" placeholder="Search Item" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary searchBtn" type="button" id="button-addon2">Search</button>
+        </div>
+    </div>
+
+    <div class="relativePosition crudButton">
+        <div class="absolutePosition">
+            <button class="noBorder buttons btn-all btn-new-store newBtn-color" data-bs-toggle="modal" data-bs-target="#newModal" type="button"><span>New</span></button>
+            <button class="noBorder buttons btn-all btn-update-store updateBtn-color " data-bs-toggle="modal" data-bs-target="#updateModal" type="button"><span>Update</span></button>
+            <button class="noBorder buttons btn-all btn-remove btn-remove-store removeBtn-color" data-bs-toggle="modal" data-bs-target="#removeModalStore" type="button"><span>Remove</span></button>
+        </div>
+    </div>
+
+    <div class="row w-900">
+        <div class="margin tableTitleParent">
+            <h4 class="tableStoreTitle">View Items</h4>
+        </div>
+    </div>
+
+    <div class="tableDiv storeTable">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="OrderTableHead " scope="col">Item Id</th>
+                <th class="OrderTableHead" scope="col">Item Name</th>
+                <th class="OrderTableHead" scope="col">QTY On Hand</th>
+                <th class="OrderTableHead" scope="col">Unit Price</th>
+            </tr>
+            </thead>
+            <tbody id="storeTable">
+
+            </tbody>
+        </table>
+    </div>
+
+    <!--  new Modal  -->
+    <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Item</h1>
+                </div>
+                <div class="modal-body">
+                    <!--    code here  -->
+                    <form class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-12">
+                            <label for="itemCode" class="form-label">Item Code</label>
+                            <input type="text" class="inputCustomerId form-control" id="itemCode" required>
+                            <div class="s-code invalid-feedback">
+                                Item Code is a required field : Pattern I00-001.
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="itemName" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="itemName" required>
+                            <div class="s-name invalid-feedback">
+                                Minimum 5, Max 20,Space Allowed and input only English letters.
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="inputQTY" class="form-label">QTY On Hand</label>
+                            <input type="text" class="form-control" id="inputQTY" required>
+                            <div class="s-qty invalid-feedback">
+                                Max 15 letters and only numbers.
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="unitPrice" class="form-label">Unit Price</label>
+                            <input type="text" class="form-control" id="unitPrice" required>
+                            <div class="s-price invalid-feedback">
+                                Please Input Price and only numbers.
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
+                            <button id="submitStore" class="btn btn-primary saveChanges" type="button">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  update Modal  -->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id=" exampleModalLabel ">Update Item</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- code-here -->
+                    <form class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-12">
+                            <label for="itemCodeS" class="form-label">Item Code</label>
+                            <input type="text" class="inputCustomerId form-control" id="itemCodeS" required>
+                            <div class="s-code invalid-feedback">
+                                Item Code is a required field : Pattern I00-001.
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="itemNameS" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="itemNameS" required>
+                            <div class="s-name invalid-feedback">
+                                Minimum 5, Max 20,Space Allowed and input only English letters.
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="qty" class="form-label">QTY On Hand</label>
+                            <input type="text" class="form-control" id="qty" required>
+                            <div class="s-qty invalid-feedback">
+                                Max 15 letters and only numbers.
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="priceS" class="form-label">Unit Price</label>
+                            <input type="text" class="form-control" id="priceS" required>
+                            <div class="s-price invalid-feedback">
+                                Please Input Price and only numbers.
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
+                            <button id="updateS" class="btn btn-primary saveChanges" type="submit">Update Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  remove Modal  -->
+    <div class="modal fade" id="removeModalStore" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id=" -exampleModalLabel">Remove Item</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!--    code here  -->
+                    <form class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-12">
+                            <label for="itemCodeR" class="form-label">Item Code</label>
+                            <input type="text" class="inputCustomerId form-control" id="itemCodeR" required>
+                            <div class="s-code invalid-feedback">
+                                Item Code is a required field : Pattern I00-001.
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="itemNameR" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="itemNameR" required>
+                            <div class="s-name invalid-feedback">
+                                Minimum 5, Max 20,Space Allowed and input only English letters.
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
+                            <button id="deleteS" class="btn btn-primary saveChanges" type="submit">Remove Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Place order-->
+<section id="placeOrder-sec">
+    <div class="titleOrder container">
+        <h3 class="purpleTextColor">Place Your Orders</h3>
+    </div>
+    <div class="col-6 placeOrderForm">
+        <form class="row g-3 needs-validation">
+
+            <div class="col-5 margin-bottom">
+                <label for="orderId" class="form-label">Order Id :</label>
+                <input type="text" class="form-control getVal" id="orderId" placeholder="O001">
+                <div class="o-id invalid-feedback">
+                    Order ID is a required field : Pattern Oo-1.
+                </div>
+            </div>
+            <div class="col-7 margin-bottom">
+                <label for="date" class="form-label">Date :</label>
+                <input type="date" class="form-control getVal" id="date" placeholder="date">
+                <div class="o-date invalid-feedback">
+                    please input valid current date.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-5 margin-bottom">
+                    <label for="selectCustomerId" class="form-label">Customer Id :</label>
+                    <select id="selectCustomerId" class="form-select getVal">
+                    </select>
+                </div>
+                <div class="col-7 margin-bottom">
+                    <label for="cusName" class="form-label inputFieldMargin">Customer Name :</label>
+                    <input type="text" id="cusName" class="form-control inputFieldMargin getVal" placeholder="customer name" aria-label="Customer Name">
+                    <div class="c-name invalid-feedback">
+                        Minimum 5, Max 20,Space Allowed and input only English letters.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-5 margin-bottom">
+                    <label for="cusCity" class="form-label ">City :</label>
+                    <input type="text" id="cusCity" class="form-control getVal" placeholder="select city" aria-label="City">
+                    <div class="c-city invalid-feedback">
+                        Max 25 letters and input only English letters.
+                    </div>
+                </div>
+                <div class="col-7 margin-bottom">
+                    <label for="cusTel" class="form-label inputFieldMargin">Telephone :</label>
+                    <input type="text" id="cusTel" class="form-control inputFieldMargin getVal" placeholder="telephone" aria-label="telephone">
+                    <div class="c-tel invalid-feedback">
+                        Please enter valid mobile number.Space Not Allowed,Max 10.
+                    </div>
+                </div>
+            </div>
+
+            <div class="margin-bottom">
+                <h4 class="purpleTextColor">Item Section</h4>
+                <div id="line1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-5 margin-bottom">
+                    <label for="selectItemCode" class="form-label getVal">Item Code</label>
+                    <select id="selectItemCode" class="form-select">
+
+                    </select>
+                </div>
+                <div class="col-7 margin-bottom">
+                    <label for="itemNameP" class="form-label inputFieldMargin">Item Name :</label>
+                    <input type="text" id="itemNameP" class="form-control inputFieldMargin getVal" placeholder="item name" aria-label="item name">
+                    <div class="s-name invalid-feedback">
+                        Minimum 5, Max 20,Space Allowed and input only English letters.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-5 margin-bottom">
+                    <label for="qtyOnHandP" class="form-label">QTY On Hand :</label>
+                    <input type="text" id="qtyOnHandP" class="form-control getVal" placeholder="QTY On Hand" aria-label="QTY On Hand">
+                    <div class="s-qty invalid-feedback">
+                        Max 15 letters and only numbers.
+                    </div>
+                </div>
+                <div class="col-7 margin-bottom">
+                    <label for="orderQTYP" class="form-label inputFieldMargin">Order QTY :</label>
+                    <input type="text" id="orderQTYP" class="form-control inputFieldMargin getVal" placeholder="order qty" aria-label="orderQTY">
+                    <div class="s-qtyOrder invalid-feedback">
+                        please input valid quantity.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 marginZero">
+                <label for="inputPriceP" class="form-label">Price</label>
+                <input type="text" class="form-control getVal" id="inputPriceP" placeholder="price">
+                <div class="s-price invalid-feedback">
+                    Please Input Price and only numbers.
+                </div>
+            </div>
+
+            <div class="col-md-6 marginZero">
+                <label for="discountOrder" class="form-label">Discount Rate</label>
+                <input type="text" class="form-control getVal" id="discountOrder" placeholder="rate">
+                <div class="s-discount invalid-feedback">
+                    Please Input valid Discount and only numbers.
+                </div>
+            </div>
+            <div class="col-12">
+                <button id="addToCartBtn" type="button" class="btn btn-primary btnSize addToCartBtn-color btn-addToCart btn-all"><span> Add To Cart </span></button>
+            </div>
+
+            <div id="line2"></div>
+
+            <div class="col-6" id="bill">
+                <div id="subDiv" class="titleBill titleOrder">
+                    <h5 class="fonts-size">Billing Your Order</h5>
+                </div>
+
+                <div class="itemsDetails">
+                    <div id="itemDetailsContainer">
+                        <div id="itemNameLabel" class="col-2 ">
+
+                        </div>
+
+                        <div id="unit-price" class="col-2 ">
+
+                        </div>
+
+                        <div id="itemQty" class="col-2 ">
+
+                        </div>
+
+                        <div id="itemPriceListMainDiv" class="col-2">
+
+                        </div>
+
+                        <div id="orderRemove" class="col-2">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pricesMainDiv" class="col-12">
+                    <div class="billPricesLabel col-6">
+                        <h4 class="margin-bottom">Sub Total</h4>
+                        <h4 class="margin-bottom">Discount</h4>
+                        <h4 class="margin-bottom">Balance</h4>
+                    </div>
+
+                    <div class="billPrices col-6 pricesContentPosition">
+                        <h5 id="subTotal" class="prices margin-bottom">0.00</h5>
+                        <h5 id="discount" class="prices margin-bottom">0.00</h5>
+                        <h5 id="balance" class="prices">0.00</h5>
+                    </div>
+                </div>
+
+                <div id="billBtn" class="col-12">
+                    <button id="cancelBtn" type="button" class="btn btn-primary btnSize custom-btn cancelBtn-color btn-cancel btn-all"><span> Cancel </span></button>
+                    <button id="purchaseBtn" type="button" class="btn btn-primary inputFieldMargin btnSize purchaseBtn-color btn-purchase btn-all"><span> Purchase </span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!--dashboard-->
+<section id="dash-sec">
+    <div class="row margin fonts">
+        <div id="div1" class="card shadow col-md-5 card-container">
+            <div>
+                <h2 class="cardText" id="ordersCount">00</h2>
+                <h5 class="cardText">Total Orders</h5>
+            </div>
+            <div class="back">You can check here<br> the number of orders we<br> have received so far</div>
+        </div>
+
+        <div class="card shadow col-md-5 card-container">
+            <div id="div2" class="">
+                <h2 class="cardText" id="customer">00</h2>
+                <h5 class="cardText">Total Customers</h5>
+            </div>
+            <div class="back">The number of customers<br> registered in our system<br> so far can be checked here.</div>
+        </div>
+
+        <div class="card shadow col-md-5 card-container">
+            <div id="div3" class="">
+                <h2 class="cardText" id="income">00</h2>
+                <h5 class="cardText">Total Income</h5>
+            </div>
+            <div class="back">You can check here<br> the income received<br> by our shop so far</div>
+        </div>
+    </div>
+
+    <div class="container-fluid searchBarParent">
+        <div class="searchBar input-group mb-3">
+            <input id="dashStore" type="text" class="searchInputField form-control" placeholder="Search Order" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary searchBtn" type="button" id="button-addon2 ">Search</button>
+        </div>
+    </div>
+
+    <div class="row position viewWidth">
+        <div class="row margin col-sm-4 col-xs OrderTitle">
+            <h4 id="orders" class="titleSmallSize">View Order Detail</h4>
+        </div>
+    </div>
+
+    <div class="tableDiv orderDetailTable fonts">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="OrderTableHead " scope="col">Order Id</th>
+                <th class="OrderTableHead " scope="col">Date</th>
+                <th class="OrderTableHead" scope="col">Customer Id</th>
+                <th class="OrderTableHead" scope="col">Discount Rate</th>
+                <th class="OrderTableHead" scope="col">Discount</th>
+                <th class="OrderTableHead" scope="col">Sub Total</th>
+                <th class="OrderTableHead" scope="col">Balanace</th>
+            </tr>
+            </thead>
+            <tbody id="viewOrderDetailTable">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="viewOrderBtnParent">
+        <button id ="updateButtonDash" type="button" class="btn btn-size btn-all btn-update updateBtn-color " data-bs-toggle="modal" data-bs-target="#updateOrderModal" ><span>Update</span></button>
+        <button id="removeButtonDash" type="button" class="btn btn-size btn-all btn-remove removeBtn-color " data-bs-toggle="modal" data-bs-target="#removeOrderModal"><span>Remove</span></button>
+    </div>
+
+<!--  update order modal  -->
+    <div class="modal fade" id="updateOrderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="  exampleModalLabel">Update Order</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!--  code here  -->
+                    <div class="col-12 placeOrderForm">
+
+                        <form class="row g-3 needs-validation">
+
+                            <div class="col-12 margin-bottom">
+                                <label for="inputOrderId" class="form-label">Order Id :</label>
+                                <input type="text" class="form-control" id="inputOrderId" placeholder="O0-1">
+                                <div class="o-idD invalid-feedback">
+                                    Order ID is a required field : Pattern Oo-1.
+                                </div>
+                            </div>
+                            <div class="col-12 margin-bottom">
+                                <label for="dateU" class="form-label">Date :</label>
+                                <input type="date" class="form-control" id="dateU" placeholder="date">
+                                <div class="o-dateD invalid-feedback">
+                                    please input valid current date.
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 margin-bottom">
+                                    <label for="-inputCusId" class="form-label">Customer ID</label>
+                                    <input type="text" class="inputCustomerId form-control" id="-inputCusId" required>
+                                    <div class="cus-id invalid-feedback">
+                                        customer ID is a required field : Pattern C00-001.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="row">
+
+                                    <div class="col-12 marginZero">
+                                        <label for="rate" class="form-label">Discount Rate(%)</label>
+                                        <input type="text" class="form-control" id="rate" placeholder="rate">
+                                        <div class="s-discountRate invalid-feedback">
+                                            Please Input valid Discount rate and only numbers.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 marginZero">
+                                        <label for="inputDiscount" class="form-label">Discount</label>
+                                        <input type="text" class="form-control" id="inputDiscount" placeholder="discount">
+                                        <div class="s-discountD invalid-feedback">
+                                            Please Input valid Discount and only numbers.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 marginZero">
+                                    <label for="inputSubTotal" class="form-label">Sub Total</label>
+                                    <input type="text" class="form-control" id="inputSubTotal" placeholder="sub total">
+                                    <div class="s-subTotalD invalid-feedback">
+                                        Please Input sub total and only numbers.
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 marginZero">
+                                    <label for="inputPrice" class="form-label">Price</label>
+                                    <input type="text" class="form-control" id="inputPrice" placeholder="price">
+                                    <div class="s-priceD invalid-feedback">
+                                        Please Input Price and only numbers.
+                                    </div>
+                                </div>
+                                <label>Give discount only if the total price is 8000 or more.</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
+                        <button id="updateOrderDetail" type="button" class="btn btn-primary saveChanges">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--remove order modal-->
+    <div class="modal fade" id="removeOrderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel ">Remove Order</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!--  code here  -->
+                    <div class="col-12 placeOrderForm">
+
+                        <form class="row g-3 ">
+                            <div class="col-12 margin-bottom">
+                                <label for="orderIdR" class="form-label">Order Id :</label>
+                                <input type="text" id="orderIdR" class="form-control " placeholder="order Id" aria-label="order id">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 margin-bottom">
+                                    <label for="inputCustomerIdR" class="form-label">Customer ID</label>
+                                    <input type="text" class="inputCustomerId form-control" id="inputCustomerIdR" required>
+                                    <div class="c-id invalid-feedback">
+                                        customer ID is a required field : Pattern C00-001.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 marginZero">
+                                <label for="inputPriceR" class="form-label">Price</label>
+                                <input type="text" class="form-control" id="inputPriceR" placeholder="price">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
+                        <button id="removeOrder" type="button" class="btn btn-primary saveChanges">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Footer-->
+<footer id="footer" class="margin padding position footer fonts">
+    <div class="margin padding">
+        <div class="row margin padding">
+            <div id="mainDivF" class="position">
+                <div id="aboutUs" class="col-sm-4 col-xs">
+                    <h1 id="about">About Us</h1>
+                </div>
+                <div id="fDiv1" class="col-sm-4 col-xs">
+                    <p>More Link</p>
+                    <a href="#customer"><p>Our Customers<br><a href="#orders">View Orders</a></p></a>
+                </div>
+                <div id="fDiv2" class="col-sm-4 col-xs">
+                    <p>Primary Menu</p>
+                    <p><a href="#">Dashboard</a><br>
+                       <a href="customerManage.html">Customer</a><br>
+                       <a href="storeManage.html">Store</a><br>
+                       <a href="placeOrderManage.html">Place order
+                       </a><br>About us</p>
+                </div>
+                <div id="fDiv3" class="col-sm-4 col-xs">
+                    <p>Contact <Us></Us></p>
+                    <p>Email : rameshlayan4@gmail.com<br>Hotline : +94 76 452 365 2</p>
+                </div>
+
+                <div id="groStore" class="col-xs">
+                <p class="margin">GroStore</p>
+                </div>
+                <div id="socialMedia" class="col-sm-4 col-xs">
+                    <img id="facebook" src="assets/image/icons8-facebook-64.png" alt="facebook" title="facebook.com">
+                    <img id="instagram" src="assets/image/icons8-instagram-50.png" alt="instagram" title="instagram.com">
+                    <img id="whatsapp" src="assets/image/icons8-whatsapp-50.png" alt="whatsapp" title="whatsapp.com">
+                </div>
+                <div id="allRights" class="col-sm-4 col-xs">
+                    <p class="margin">All Rights Reserved Ramesh Layan 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="assets/lib/jquery-3.7.1.min.js"></script>
+<script type="module" src="controller/CustomerController.js"></script>
+<script type="module" src="controller/StoreController.js"></script>
+<script type="module" src="controller/OrderController.js"></script>
+<script type="module" src="controller/indexController.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
