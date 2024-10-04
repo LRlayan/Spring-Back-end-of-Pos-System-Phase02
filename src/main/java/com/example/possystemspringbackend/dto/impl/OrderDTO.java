@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 public class OrderDTO implements SuperDTO {
+    private String id;
     private String orderID;
     private LocalDate date;
     private String cusId;
