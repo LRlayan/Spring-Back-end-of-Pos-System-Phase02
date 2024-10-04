@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class CustomerDTO implements SuperDTO {
-    private String id;
+    private String customerId;
     private String name;
     private String city;
     private String tel;
