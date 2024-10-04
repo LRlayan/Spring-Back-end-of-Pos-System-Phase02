@@ -1,0 +1,442 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+a:visited{
+    color: #FBDFFF;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+#DashGroStore{
+    font-size: 30px;
+}
+
+#DashGroStore{
+    -webkit-text-fill-color: #590067;
+    font-weight: bold;
+}
+
+#profileDropdown{
+    width: 75px;
+    position: relative;
+    left: -20px;
+}
+
+/*#dropdownList{*/
+/*    width: 250px;*/
+/*    height: 400px;*/
+/*    position: absolute;*/
+/*    left: 9rem;*/
+/*}*/
+
+#dropdownImage{
+
+    width: 170px;
+    height: 150px;
+
+    border-radius: 100%;
+    position: relative;
+    left: 39px;
+}
+
+.textAlignCenter{
+    text-align: center;
+}
+
+.profileDetail{
+    -webkit-text-fill-color: gray;
+    position: relative;
+    left: 40px;
+    width: fit-content;
+}
+
+.signup{
+    -webkit-text-fill-color: #0066FF;
+    margin-top: 20px;
+}
+
+.logout{
+    text-align: center;
+    -webkit-text-fill-color: #590067;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+/*.headerPosition{*/
+/*    position: relative;*/
+/*    left: 100px;*/
+/*    top: 0px;*/
+/*}*/
+
+/*----------------------------------------------------------------------------------------------------------*/
+.fonts{
+    font-family: Raleway;
+}
+
+.card{
+    width: 320px;
+    height: 178px;
+    background-color: white;
+    margin: auto;
+    border: 0;
+    margin-bottom: 5px;
+}
+
+.cardText{
+    text-align: center;
+    -webkit-text-fill-color: purple;
+    margin: 25px;
+    font: 25px "Raleway";
+}
+
+/*Search bar*/
+.searchBarParent{
+    position: relative;
+    width: 95vw;
+    margin: 0;
+}
+
+.searchBar{
+    width: 81vw;
+    height: 50px;
+
+    position: absolute;
+    left: 10%;
+    top: 20px;
+}
+
+.searchInputField{
+    z-index: 1;
+    border-radius: 200px 0 0 200px;
+}
+
+.searchBtn{
+    border-radius: 200px;
+    width: 150px;
+    background-color: purple;
+    -webkit-text-fill-color: white;
+    border: 0;
+}
+
+.OrderTitle{
+    position: absolute;
+    top: 86px;
+    left: 55px;
+    font: 22px Raleway;
+    font-weight: bold;
+}
+
+.OrderTableHead{
+    background-color: #590067 !important;
+    -webkit-text-fill-color: white;
+    font: 18px Raleway;
+}
+
+.orderTableBody{
+    background-color: #FBDFFF!important;
+    -webkit-text-fill-color: black;
+}
+
+.orderDetailTable{
+    position: relative;
+    top: 86px;
+    margin: auto;
+
+    width: 89vw;
+}
+
+.tableDiv{
+    max-height: 240px; /* Set the maximum height of the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.tableDiv{
+    table-layout: fixed; /* Prevent the table from resizing its columns */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: scroll;
+}
+
+#viewOrderBtnParent{
+    position: relative;
+    top: 96px;
+    left: 66px;
+    width: fit-content;
+}
+
+.btn-size{
+    width: 100px;
+    margin-right: 10px;
+}
+
+.footer{
+    font-family: Raleway;
+    height: fit-content;
+    position: relative;
+    top: 8rem;
+}
+
+#mainDivF{
+    width: 100vw;
+    height: 65vh;
+    margin: 0;
+    background-color: #3A0044;
+
+    position: relative;
+    top: 5px;
+    font: 18px Raleway;
+}
+
+#aboutUs{
+    -webkit-text-fill-color: white;
+    position: absolute;
+    top: 2%;
+    left: 44%;
+}
+
+#fDiv1{
+    -webkit-text-fill-color: white;
+    position: absolute;
+    top: 25%;
+    left: 15%;
+}
+
+#fDiv2{
+    -webkit-text-fill-color: white;
+    position: absolute;
+    top: 25%;
+    left: 45%;
+}
+
+#fDiv3{
+    -webkit-text-fill-color: white;
+    position: absolute;
+    top: 25%;
+    left: 72%;
+
+    width: fit-content;
+}
+
+#allRights{
+    position: absolute;
+    top: 90%;
+    left: 39%;
+    -webkit-text-fill-color: white;
+}
+
+#groStore{
+    position: absolute;
+    top: 84.5%;
+    left: 75%;
+    -webkit-text-fill-color: white;
+
+    font-size: 35px;
+}
+
+#socialMedia{
+    position: absolute;
+    top: 84%;
+    left: 12%;
+}
+
+#facebook{
+    width: 55px;
+    aspect-ratio: 1/1;
+
+    position: relative;
+}
+
+#instagram{
+    width: 40px;
+    aspect-ratio: 1/1;
+
+    position: relative;
+    left: 10px;
+}
+
+#whatsapp{
+    width: 39px;
+    aspect-ratio: 1/1;
+
+    position: relative;
+    left: 28px;
+}
+
+.margin{
+    margin: 0;
+}
+
+.padding{
+    padding: 0;
+}
+
+.position{
+    position: relative;
+}
+
+#d1{
+    position: absolute;
+    width: fit-content;
+}
+
+.viewWidth{
+    width: 98vw;
+    height: 8vh;
+}
+
+section p{
+    margin: 0;
+}
+
+.padding{
+    padding: 0!important;
+}
+
+/*modal*/
+.updateTitleOrder{
+    position: absolute;
+    top: 15px;
+    left: 25%;
+}
+
+#line1UpdateOrder{
+    width: 230px;
+    height: 1px;
+    background-color: gray;
+
+    position: relative;
+    top: -20px;
+    left: 9rem;
+}
+
+.subTotal{
+
+}
+
+.discount{
+
+}
+
+.balance{
+
+}
+
+.textAlignRight{
+    text-align: right;
+}
+
+.textAlignCenter{
+    text-align: center;
+}
+
+/*header title animation*/
+div.container
+{
+    font-family: Raleway;
+    margin: 0 auto;
+    padding: 1em 3em;
+    text-align: center;
+    width: 800px;
+}
+
+div.container span
+{
+    color: #FFF;
+    text-decoration: none;
+    font: 19px Raleway;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    position: relative;
+    top: 0.7rem;
+    z-index: 0;
+    cursor: pointer;
+}
+
+/* Top and Bottom borders come in */
+div.topBotomBordersIn span:before, div.topBotomBordersIn span:after
+{
+    position: absolute;
+    left: 12px;
+    width: 80%;
+    height: 2px;
+    background: #590067;
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+
+
+div.topBotomBordersIn span:before
+{
+    top: 0px;
+    transform: translateY(0px);
+}
+
+div.topBotomBordersIn span:after
+{
+    left: 12px;
+    bottom: 20px;
+    transform: translateY(10px);
+}
+
+div.topBotomBordersIn span:hover:before, div.topBotomBordersIn span:hover:after
+{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/*card animation*/
+
+.card-container, .front, .back {
+    width: 20rem;
+    height: 10rem;
+}
+
+.back {
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .25);
+
+    font-family: BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+}
+
+.back {
+    background-image: linear-gradient(to right bottom, #590067, #590067);
+    width: 322px;
+    height: 162px;
+
+    font: 22px Arial;
+    -webkit-text-fill-color: white;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: transform .8s ease;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+.card-container:hover .front {
+    transform: rotateY(-180deg);
+}
+.card-container:hover .back {
+    transform: rotateY(0deg);
+}
+
+.card-container {
+    perspective: 75rem;
+}

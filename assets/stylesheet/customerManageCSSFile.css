@@ -1,0 +1,102 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+.fonts{
+    font-family: Raleway;
+}
+
+.tableTitleParent{
+    z-index: -1;
+    position: relative;
+    left: 1020px;
+    top: 320px;
+    width: fit-content;
+}
+
+.tableTitle{
+    position: absolute;
+    left: 0rem;
+    top: 0px;
+    width:200px;
+}
+
+.buttons{
+    margin-right: 15px;
+    width: 110px;
+    border-radius: 7px;
+    font: 15px Raleway;
+}
+
+/*.newButton{*/
+/*   */
+/*}*/
+
+/*.updateButton{*/
+/*    margin-right: 15px;*/
+/*    width: 110px;*/
+/*    border-radius: 7px;*/
+/*    font: 15px Raleway;*/
+/*}*/
+
+/*.removeButton{*/
+/*    width: 110px;*/
+/*    border-radius: 7px;*/
+/*    font: 15px Raleway;*/
+/*}*/
+
+.whiteTextColor{
+    -webkit-text-fill-color: white;
+}
+
+.noBorder{
+    border: 0;
+}
+
+.relativePosition{
+    position: relative;
+}
+
+.absolutePosition{
+    position: absolute;
+}
+
+.crudButton{
+    top: 108px;
+    left: 124px;
+
+    width:600px;
+}
+
+/*customer table*/
+
+/*.viewCustomerTitle{*/
+/*    position: relative;*/
+/*    top: 151px;*/
+/*    left: 66rem;*/
+
+/*    width: fit-content;*/
+/*    font: 20px Raleway;*/
+/*}*/
+
+.customerTable{
+    position: relative;
+    top: 198px;
+
+    margin: auto;
+    width: 82vw;
+}
+
+/*modal*/
+
+.margin-bottom{
+    margin-bottom: 10px;
+}
+
+.saveChanges{
+    background-color: #590067;
+    border: 0;
+}
+
+.close{
+    background-color: #ED6400;
+    border: 0;
+}

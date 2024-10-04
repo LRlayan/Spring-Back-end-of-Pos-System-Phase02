@@ -1,0 +1,62 @@
+#telephone{
+    position: absolute;
+    top: 29rem;
+    left: 10px;
+    font: 15px Raleway;
+}
+
+#inputField{
+    position: relative;
+    top: -5rem;
+}
+
+#logoParent{
+    position: absolute;
+    left: 15.5rem;
+}
+
+#logo{
+    width: 90px;
+    aspect-ratio: 1/1;
+}
+
+#signupLabel{
+    position: absolute;
+    top: 9rem;
+    left: 15rem;
+    font: 15px Raleway;
+}
+
+#parent{
+    height: 568px;
+    position: relative;
+    top: 0;
+}
+
+#position{
+    width: 675px;
+    position: relative;
+    left: 670px;
+    top: -550px;
+}
+
+#signUp{
+    position: absolute;
+    left: 0px;
+    top: 15px;
+    font: 25px Raleway;
+}
+
+#loginBtn{
+    position: absolute;
+    top: -30px;
+    left: 0px;
+}
+
+#imageParent{
+    height: 580px;
+}
+
+.loginImage{
+    height: 598.8px;
+}

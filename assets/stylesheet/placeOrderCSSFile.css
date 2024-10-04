@@ -1,0 +1,187 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+.fonts{
+    font-family: Raleway;
+}
+
+.titleOrder{
+    z-index: -1;
+    position: absolute;
+    top: 22%;
+    left: 21%;
+}
+
+#bill{
+    top: 125px;
+}
+
+#line1{
+    background-color: gray;
+    width: 29rem;
+    height: 1px;
+
+    opacity: 50%;
+
+    position: relative;
+    top: -20px;
+    left: 158px;
+}
+
+#line2{
+    background-color: gray;
+    width: 45rem;
+    height: 1px;
+
+    transform: rotate(90deg);
+
+    opacity: 50%;
+
+    position: relative;
+    left: 21rem;
+    top: -19rem;
+}
+
+.margin-bottom{
+    margin-bottom: 20px;
+}
+
+.marginZero{
+    margin: 0;
+}
+
+.inputFieldMargin{
+    margin-left: 0px;
+}
+
+.placeOrderForm{
+    padding: 50px;
+}
+
+#addToCartBtn{
+    position: absolute;
+    right: 53.9%;
+    border: 0;
+    margin-top: 34px;
+
+}
+
+/*Billing Section*/
+
+.itemsDetails{
+    height: 340px;
+    margin: 40px;
+
+    position: relative;
+    top: 7rem;
+    z-index: 1;
+}
+
+.itemsDetails{
+    max-height: 340px; /* Set the maximum height of the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.itemsDetails{
+    table-layout: fixed; /* Prevent the table from resizing its columns */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: scroll;
+}
+
+.prices{
+    text-align: right;
+}
+
+.titleBill{
+    left: 38%;
+    -webkit-text-fill-color: #590067;
+}
+
+#pricesMainDiv{
+    position: relative;
+    top: 6rem;
+}
+
+#bill{
+    position: absolute;
+    left: 50%;
+    top: 25%;
+}
+
+.billPricesLabel{
+    width: fit-content;
+
+    position: absolute;
+    top: 0;
+    left: 40px;
+}
+
+.billPrices{
+    position: absolute;
+    right: 0;
+}
+
+.pricesContentPosition{
+    padding-right: 50px;
+}
+
+#billBtn{
+    position: relative;
+    top: 17rem;
+    padding-left: 12rem;
+}
+
+.btnSize{
+    width: 150px;
+}
+
+#cancelBtn{
+    border: 0;
+}
+
+#purchaseBtn{
+    border: 0;
+}
+
+.purpleTextColor{
+    border: 0;
+}
+
+#itemPriceListMainDiv{
+    position: absolute;
+    top: 0;
+    left: 13rem;
+    margin-right: 38px;
+}
+
+.item-container {
+    width: 500px;
+}
+
+.item-container img {
+    display: block;
+    position: absolute;
+    right: 13px;
+
+    width:24px;
+    height:24px;
+    border:none;
+    border-radius:5px;
+    margin-bottom:5px;
+}
+
+.price{
+    /*margin-left: 320px;*/
+    position: absolute;
+    left: 24rem;
+}
+
+.unit-price{
+    position: absolute;
+    left: 9rem;
+}
+
+.qty{
+    position: absolute;
+    left: 13.5rem;
+}

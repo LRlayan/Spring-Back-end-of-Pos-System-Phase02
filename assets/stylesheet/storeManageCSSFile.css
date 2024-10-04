@@ -1,0 +1,39 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+.fonts{
+    font-family: Raleway;
+}
+
+.viewStoreTableTitle{
+    position: relative;
+    top: 152px;
+    left: 67.5rem;
+
+    width: fit-content;
+    font: 22px Raleway;
+}
+
+.storeTable{
+    position: relative;
+    top: 190px;
+
+    margin: auto;
+    width: 82vw;
+}
+
+.tableStoreTitle{
+    font-family: Raleway;
+    position: absolute;
+    left: 4rem;
+    top: -165px;
+    width: 200px;
+}
+
+.tableTitleSubDiv{
+    width: 250px;
+}
+
+.tableTitleParentDiv{
+    width: 1300px;
+}
+
