@@ -1,9 +1,7 @@
 package com.example.possystemspringbackend.entity.impl;
 
 import com.example.possystemspringbackend.entity.SuperEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,4 +23,7 @@ public class OrderEntity implements SuperEntity {
     private double discount;
     private double subTotal;
     private double balance;
+    @ManyToOne
+    @JoinColumn(name = "customerId",nullable = false)
+    private CustomerEntity customer;
 }
