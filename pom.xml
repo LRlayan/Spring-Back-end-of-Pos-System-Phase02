@@ -16,7 +16,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <junit.version>5.9.2</junit.version>
         <lombok-version>1.18.32</lombok-version>
-        <mySql-version>9.0.0</mySql-version>
+        <mySql-version>8.0.33</mySql-version>
         <spring-mvc-version>6.1.11</spring-mvc-version>
         <spring-data-version>3.3.4</spring-data-version>
         <hibernate-core-version>6.6.0.Final</hibernate-core-version>
@@ -49,11 +49,11 @@
             <version>${lombok-version}</version>
         </dependency>
         <!--    mySql    -->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
             <version>${mySql-version}</version>
-            <scope>provided</scope>
         </dependency>
         <!--    spring data    -->
         <dependency>
