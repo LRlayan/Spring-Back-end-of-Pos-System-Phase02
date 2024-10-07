@@ -7,15 +7,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class OrderEntity implements SuperEntity {
     @Id
-    private String id;
     private String orderID;
     private LocalDate date;
     private String cusId;
@@ -23,7 +23,17 @@ public class OrderEntity implements SuperEntity {
     private double discount;
     private double subTotal;
     private double balance;
-    @ManyToOne
-    @JoinColumn(name = "customerId",nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerId", nullable = false)
     private CustomerEntity customer;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "orderDetils",
+            joinColumns = @JoinColumn(name = "orderId"),
+            inverseJoinColumns = @JoinColumn(name = "itemId")
+    )
+    @JoinColumn(name = "price")
+    @JoinColumn(name = "discount")
+    @JoinColumn(name = "qty")
+    private List<ItemEntity> itemList;
 }
