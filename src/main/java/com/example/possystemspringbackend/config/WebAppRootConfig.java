@@ -1,6 +1,7 @@
 package com.example.possystemspringbackend.config;
 
 import jakarta.persistence.EntityManagerFactory;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +12,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
 import javax.sql.DataSource;
 
 @Configuration
@@ -24,7 +23,7 @@ public class WebAppRootConfig {
     public DataSource dataSource(){
         var driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/groStore?createDatabaseIfNotExist=true");
+        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/springGroStore?createDatabaseIfNotExist=true");
         driverManagerDataSource.setUsername("root");
         driverManagerDataSource.setPassword("Ijse@1234");
         return driverManagerDataSource;
@@ -46,5 +45,10 @@ public class WebAppRootConfig {
         var transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
+    }
+
+    @Bean
+    public ModelMapper modalMapper(){
+        return new ModelMapper();
     }
 }
