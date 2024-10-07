@@ -1,12 +1,11 @@
 package com.example.possystemspringbackend.entity.impl;
 
 import com.example.possystemspringbackend.entity.SuperEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,9 +14,10 @@ import lombok.NoArgsConstructor;
 @Table(name = "item")
 public class ItemEntity implements SuperEntity {
     @Id
-    private String id;
     private String itemCode;
     private String itemName;
     private int QTYOnHand;
     private double unitPrice;
+    @OneToMany(mappedBy = "item",cascade = CascadeType.ALL)
+    private List<OrderDetailsEntity> orderList;
 }
