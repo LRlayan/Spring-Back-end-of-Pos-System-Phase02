@@ -26,14 +26,6 @@ public class OrderEntity implements SuperEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerId", nullable = false)
     private CustomerEntity customer;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "orderDetils",
-            joinColumns = @JoinColumn(name = "orderId"),
-            inverseJoinColumns = @JoinColumn(name = "itemId")
-    )
-    @JoinColumn(name = "price")
-    @JoinColumn(name = "discount")
-    @JoinColumn(name = "qty")
-    private List<ItemEntity> itemList;
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
+    private List<OrderDetailsEntity> orderDetailsList;
 }
