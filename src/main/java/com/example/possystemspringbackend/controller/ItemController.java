@@ -69,4 +69,9 @@ public class ItemController {
         }
         return itemService.getItem(itemCode);
     }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ItemDTO> getAllItem(){
+        return itemService.getAllItem();
+    }
 }
