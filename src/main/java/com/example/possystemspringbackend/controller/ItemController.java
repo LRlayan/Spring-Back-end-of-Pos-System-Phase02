@@ -61,4 +61,12 @@ public class ItemController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping(value = "/{itemCode}")
+    public ItemStatus getSelectedItem(@PathVariable("itemCode") String itemCode){
+        if (!Regex.itemCodeValidate(itemCode).matches()){
+            return new ErrorStatus(1,"Item Code is Not valid!");
+        }
+        return itemService.getItem(itemCode);
+    }
 }

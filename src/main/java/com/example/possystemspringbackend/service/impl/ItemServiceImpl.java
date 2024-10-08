@@ -54,7 +54,11 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public ItemStatus getItem(String itemCode) {
-        return null;
+        if (itemRepository.existsById(itemCode)){
+            return mapping.toItemDTO(itemRepository.getReferenceById(itemCode));
+        }else {
+            return new ErrorStatus(2,"Selected item not found");
+        }
     }
 
     @Override
