@@ -1,5 +1,7 @@
 package com.example.possystemspringbackend.service.impl;
 
+import com.example.possystemspringbackend.customStatusCode.ErrorStatus;
+import com.example.possystemspringbackend.dto.CustomerStatus;
 import com.example.possystemspringbackend.dto.impl.CustomerDTO;
 import com.example.possystemspringbackend.entity.impl.CustomerEntity;
 import com.example.possystemspringbackend.exception.CustomerNotFoundException;
@@ -52,12 +54,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDTO getCustomer(String customerId) {
-        return null;
-    }
-
-    @Override
-    public List<CustomerDTO> getAllCustomer() {
-        return null;
+    public CustomerStatus getCustomer(String customerId) {
+        if (customerRepository.existsById(customerId)){
+            return mapping.toCustomerDTO(customerRepository.getReferenceById(customerId));
+        }else {
+            return new ErrorStatus(2,"Selected Customer not found");
+        }
     }
 }
