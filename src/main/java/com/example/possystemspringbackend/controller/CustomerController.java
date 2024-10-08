@@ -1,5 +1,7 @@
 package com.example.possystemspringbackend.controller;
 
+import com.example.possystemspringbackend.customStatusCode.ErrorStatus;
+import com.example.possystemspringbackend.dto.CustomerStatus;
 import com.example.possystemspringbackend.dto.impl.CustomerDTO;
 import com.example.possystemspringbackend.exception.DataPersistException;
 import com.example.possystemspringbackend.service.CustomerService;
@@ -9,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/customers")
@@ -56,5 +60,13 @@ public class CustomerController {
         }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping(value = "/{customerId}")
+    public CustomerStatus getSelectedCustomer(@PathVariable("customerId") String customerId){
+        if (!Regex.customerIdValidate(customerId).matches()){
+            return new ErrorStatus(1,"Customer ID is Not valid!");
+        }
+        return customerService.getCustomer(customerId);
     }
 }
