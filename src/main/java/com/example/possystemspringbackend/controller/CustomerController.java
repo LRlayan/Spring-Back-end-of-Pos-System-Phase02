@@ -69,4 +69,9 @@ public class CustomerController {
         }
         return customerService.getCustomer(customerId);
     }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<CustomerDTO> getAllCustomers(){
+        return customerService.getAllCustomer();
+    }
 }
