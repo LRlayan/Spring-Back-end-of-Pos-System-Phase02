@@ -44,6 +44,12 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void deleteItem(String itemCode) {
+        Optional<ItemEntity> tmpItem = itemRepository.findById(itemCode);
+        if (!tmpItem.isPresent()){
+            throw new CustomerNotFoundException("Item code with " + itemCode + "Not Found!");
+        }else {
+            itemRepository.deleteById(itemCode);
+        }
     }
 
     @Override
