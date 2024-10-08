@@ -4,6 +4,7 @@ import com.example.possystemspringbackend.dto.SuperDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,4 +14,5 @@ public class CustomerDTO implements SuperDTO {
     private String name;
     private String city;
     private String tel;
+    private List<OrderDTO> orderList;
 }
