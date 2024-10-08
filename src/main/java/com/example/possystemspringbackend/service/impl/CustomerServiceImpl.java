@@ -1,6 +1,8 @@
 package com.example.possystemspringbackend.service.impl;
 
 import com.example.possystemspringbackend.dto.impl.CustomerDTO;
+import com.example.possystemspringbackend.entity.impl.CustomerEntity;
+import com.example.possystemspringbackend.exception.DataPersistException;
 import com.example.possystemspringbackend.repository.CustomerRepository;
 import com.example.possystemspringbackend.service.CustomerService;
 import com.example.possystemspringbackend.util.Mapping;
@@ -21,6 +23,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void saveCustomer(CustomerDTO customerDTO) {
+        CustomerEntity customer = customerRepository.save(mapping.toCustomerEntity(customerDTO));
+        if (customer==null){
+            throw new DataPersistException("Customer Note Saved");
+        }
     }
 
     @Override
