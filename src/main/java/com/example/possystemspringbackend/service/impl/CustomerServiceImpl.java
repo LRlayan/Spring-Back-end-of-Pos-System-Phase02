@@ -61,4 +61,9 @@ public class CustomerServiceImpl implements CustomerService {
             return new ErrorStatus(2,"Selected Customer not found");
         }
     }
+
+    @Override
+    public List<CustomerDTO> getAllCustomer() {
+        return mapping.customerList(customerRepository.findAll());
+    }
 }
