@@ -38,7 +38,7 @@ $('#submitStore').on('click' , ()=>{
     }
 
     console.log(ItemDTO);
-    valuesGetOrSendInDatabase(ItemDTO , "POST");
+    valuesGetOrSendInDatabase(ItemDTO , "POST","items");
     loadTable();
     clearForm();
 })
@@ -75,7 +75,7 @@ $('#updateS').on('click' , ()=>{
         unitPrice : unitPrice
     }
 
-    valuesGetOrSendInDatabase(ItemDTO , "PUT");
+    valuesGetOrSendInDatabase(ItemDTO , "PUT",`items/${itemCode}`);
 
     loadTable();
     clearForm();
@@ -98,7 +98,7 @@ $('#deleteS').on('click',()=>{
         itemCode : code
     }
 
-    valuesGetOrSendInDatabase(ItemDTO , "DELETE");
+    valuesGetOrSendInDatabase(ItemDTO , "DELETE",`items/${code}`);
 
     $('#deleteS').prop('disabled' , true);
     loadTable();
@@ -106,10 +106,10 @@ $('#deleteS').on('click',()=>{
 });
 
 function loadTable(){
-    valuesGetOrSendInDatabase("","GET","getData");
+    valuesGetOrSendInDatabase("","GET","items","getData");
 }
 
-function valuesGetOrSendInDatabase(ItemDTO , methodType , getVal){
+function valuesGetOrSendInDatabase(ItemDTO , methodType , endPointWithpathVariable , getVal){
     
     const itemDTOJson = JSON.stringify(ItemDTO);
     console.log(itemDTOJson);
@@ -145,7 +145,7 @@ function valuesGetOrSendInDatabase(ItemDTO , methodType , getVal){
             console.log("Processing stage", http.readyState);
         }
     }
-    http.open(`${methodType}`,"http://localhost:8080/groStore_pos_system_back_end_war_exploded/item",true);
+    http.open(`${methodType}`,`http://localhost:8080/posSystemSpringBack_end_war_exploded/api/v1/${endPointWithpathVariable}`,true);
     if (getVal === "getData") {
         http.send(); 
     }else{
