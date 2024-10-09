@@ -2,8 +2,10 @@ package com.example.possystemspringbackend.util;
 
 import com.example.possystemspringbackend.dto.impl.CustomerDTO;
 import com.example.possystemspringbackend.dto.impl.ItemDTO;
+import com.example.possystemspringbackend.dto.impl.OrderDTO;
 import com.example.possystemspringbackend.entity.impl.CustomerEntity;
 import com.example.possystemspringbackend.entity.impl.ItemEntity;
+import com.example.possystemspringbackend.entity.impl.OrderEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +40,11 @@ public class Mapping {
 
     public List<ItemDTO> toItemList(List<ItemEntity> itemList) {
         return mapper.map(itemList,new TypeToken<List<ItemDTO>>(){}.getType());
+    }
+    public OrderEntity toOrderEntity(OrderDTO orderDTO) {
+        return mapper.map(orderDTO, OrderEntity.class);
+    }
+    public OrderDTO toOrderDTO(OrderEntity orderEntity){
+        return mapper.map(orderEntity,OrderDTO.class);
     }
 }
