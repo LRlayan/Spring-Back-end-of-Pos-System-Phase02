@@ -3,8 +3,10 @@ package com.example.possystemspringbackend.util;
 import com.example.possystemspringbackend.dto.impl.CustomerDTO;
 import com.example.possystemspringbackend.dto.impl.ItemDTO;
 import com.example.possystemspringbackend.dto.impl.OrderDTO;
+import com.example.possystemspringbackend.dto.impl.OrderDetailDTO;
 import com.example.possystemspringbackend.entity.impl.CustomerEntity;
 import com.example.possystemspringbackend.entity.impl.ItemEntity;
+import com.example.possystemspringbackend.entity.impl.OrderDetailsEntity;
 import com.example.possystemspringbackend.entity.impl.OrderEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -46,5 +48,8 @@ public class Mapping {
     }
     public OrderDTO toOrderDTO(OrderEntity orderEntity){
         return mapper.map(orderEntity,OrderDTO.class);
+    }
+    public OrderDetailsEntity toOrderDetailEntity(OrderDetailDTO orderDetailDTO) {
+        return mapper.map(orderDetailDTO, OrderDetailsEntity.class);
     }
 }
