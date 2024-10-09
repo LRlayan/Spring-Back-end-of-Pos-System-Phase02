@@ -4,19 +4,18 @@ import com.example.possystemspringbackend.dto.SuperDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class OrderDTO implements SuperDTO {
-    private String id;
     private String orderID;
-    private LocalDate date;
-    private String cusId;
+    private String date;
     private double discountRate;
     private double discount;
     private double subTotal;
     private double balance;
+    private CustomerDTO customerId;
+    private List<OrderDetailDTO> orderDetailDTO;
 }
