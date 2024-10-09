@@ -33,28 +33,16 @@ $('#submitC').on('click' , ()=>{
     let tel = $('#inputTelephoneC').val();
 
     const CustomerDTO = {
-        id : cId,
+        customerId : cId,
         name : cName,
         city : city,
         tel : tel
     }
 
     console.log(CustomerDTO);
-    valuesGetOrSendInDatabase(CustomerDTO,"POST");
+    valuesGetOrSendInDatabase(CustomerDTO,"POST","customers");
     loadTable();
-
-    // let customerDetail = new Customer(cId,cName,city,tel)
-    // customer.push(customerDetail);
-
-
-    // $('#selectCustomerId').append($('<option>').text(cId)); // place order customer id comboBox set customer code
-
-    // if (customer.length < 10){
-    //     $('#customer').text("0"+ customer.length);
-    // }else {
-    //     $('#customer').text(customer.length);
-    // }
-     clearForm()
+    clearForm()
 })
 
 $('#updateC').on('click' , ()=>{
@@ -65,13 +53,13 @@ $('#updateC').on('click' , ()=>{
     let tel = $('#inputTelephoneU').val();
 
     const CustomerDTO = {
-        id : id,
+        customerId : id,
         name : cName,
         city : city,
         tel : tel
     }
     
-    valuesGetOrSendInDatabase(CustomerDTO,"PUT");
+    valuesGetOrSendInDatabase(CustomerDTO,"PUT",`customers/${id}`);
 
     loadTable()
     clearForm()
@@ -82,9 +70,9 @@ $('#deleteC').on('click',()=>{
     let cId = $('#inputCustomerId').val();
 
     let CustomerDTO = {
-        id : cId
+        customerId : cId
     }
-    valuesGetOrSendInDatabase(CustomerDTO,"DELETE");
+    valuesGetOrSendInDatabase(CustomerDTO,"DELETE",`customers/${cId}`);
 
     $('#selectCustomerId').empty();
 
@@ -99,10 +87,10 @@ $('#deleteC').on('click',()=>{
 });
 
 function loadTable(){
-    valuesGetOrSendInDatabase("","GET","getData");
+    valuesGetOrSendInDatabase("","GET","customers","getData");
 }
 
-function valuesGetOrSendInDatabase(CustomerDTO , methodType , getVal){
+function valuesGetOrSendInDatabase(CustomerDTO , methodType , pathVariable , getVal){
     
     const JsonDTO = JSON.stringify(CustomerDTO);
   
@@ -117,7 +105,7 @@ function valuesGetOrSendInDatabase(CustomerDTO , methodType , getVal){
                     $('#customerTable').empty();                
                     customerDetails.map(customer => {
                        let record = `<tr> 
-                                        <td class ="c-id orderTableBody">${customer.id}</td>
+                                        <td class ="c-id orderTableBody">${customer.customerId}</td>
                                         <td class ="c-name orderTableBody">${customer.name}</td>
                                         <td class ="c-city orderTableBody">${customer.city}</td>
                                         <td class ="c-tel orderTableBody">${customer.tel}</td>
@@ -136,7 +124,7 @@ function valuesGetOrSendInDatabase(CustomerDTO , methodType , getVal){
             console.log("Processing stage", http.readyState);
         }
     }
-    http.open(`${methodType}`,"http://localhost:8080/groStore_pos_system_back_end_war_exploded/customer",true);
+    http.open(`${methodType}`,`http://localhost:8080/posSystemSpringBack_end_war_exploded/api/v1/${pathVariable}`,true);
     if (getVal === "getData") {
         http.send(); 
     }else{
