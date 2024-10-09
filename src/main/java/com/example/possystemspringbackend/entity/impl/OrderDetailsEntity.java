@@ -20,20 +20,15 @@ public class OrderDetailsEntity {
     private String customerName;
     private String customerCity;
     private String customerTel;
+    @Column(insertable = false, updatable = false)
+    private String itemCode;
+    private String itemName;
     private int orderQTY;
     private double unitPrice;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "itemCode")
+    @JoinColumn(name = "itemCode",referencedColumnName = "itemCode")//duplicate column mapping
     private ItemEntity item;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orderID")
     private OrderEntity order;
-
-//duplicate column mapping
-//   Add @Column(insertable = false, updatable = false) to prevent duplicate column mapping
-//    @Column(insertable = false, updatable = false)
-//    private String itemCode;
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "itemCode",referencedColumnName = "itemCode")
-//    private ItemEntity item;
 }
