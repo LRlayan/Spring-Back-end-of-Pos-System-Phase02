@@ -24,8 +24,8 @@ var generateOrderId = 0;
 let income = 0;
 var dis = 0;
 
-window.onload = valuesGetOrSendInDatabase("customer","GET","getDataCus");
-window.onload = valuesGetOrSendInDatabase("item","GET","getDataItem");
+window.onload = valuesGetOrSendInDatabase("customers","GET","getDataCus");
+window.onload = valuesGetOrSendInDatabase("items","GET","getDataItem");
 window.onload = loadTable();
 
     $('#placeOrder-tab').on('click',()=>{
@@ -54,7 +54,7 @@ window.onload = loadTable();
 
     function autoGenerateOrderId(){
         generateOrderId = 1;
-        valuesGetOrSendInDatabase('order','GET','')
+        valuesGetOrSendInDatabase('orders','GET','')
             .then(jsonDTO =>{
                 if(generateOrderId > 0){
                     jsonDTO.forEach(order => {  
@@ -72,10 +72,10 @@ window.onload = loadTable();
     $('#selectCustomerId').change(function() {
         var selectedValue = $(this).val();
 
-        valuesGetOrSendInDatabase('customer', 'GET', '')
+        valuesGetOrSendInDatabase('customers', 'GET', '')
         .then(jsonDTO => {
             jsonDTO.forEach(customer => {
-                if (selectedValue === customer.id){
+                if (selectedValue === customer.customerId){
                     $('#cusName').val(customer.name);
                     $('#cusCity').val(customer.city);
                     $('#cusTel').val(customer.tel);
@@ -91,7 +91,7 @@ window.onload = loadTable();
         // Get the selected value using val()
         var selectedValue = $(this).val();
 
-        valuesGetOrSendInDatabase('item', 'GET', '')
+        valuesGetOrSendInDatabase('items', 'GET', '')
         .then(jsonDTO => {
             jsonDTO.forEach(item => {
                 if (selectedValue === item.itemCode){
@@ -197,10 +197,10 @@ window.onload = loadTable();
         let orderData = {
             orderId:orId,
             date:dates,
-            cusId:customerId,
-            cusName:customerName,
-            city:customerCity,
-            tel:customerTel,
+            customerId:customerId,
+            customerName:customerName,
+            customerCity:customerCity,
+            customerTel:customerTel,
             itemCode:itemCode,
             itemName:iName,
             orderQTY:orderQty,
@@ -294,11 +294,11 @@ window.onload = loadTable();
             discount:discount,
             subTotal:subTot,
             balance:total,
-            orderDetails: store
+            orderDetailDTO: store
         }
         
-        valuesGetOrSendInDatabase("order","POST","",OrderDTO);
-        valuesGetOrSendInDatabase("item","PUT","",ItemDTO);
+        valuesGetOrSendInDatabase("orders","POST","",OrderDTO);
+        valuesGetOrSendInDatabase("items","PUT","",ItemDTO);
         loadTable();
         clear();        
 
@@ -335,7 +335,7 @@ window.onload = loadTable();
     })
 
     function loadTable() {
-        valuesGetOrSendInDatabase("order", "GET","getData");
+        valuesGetOrSendInDatabase("orders", "GET","getData");
     }
 
     function valuesGetOrSendInDatabase(mappingType , methodType , getVal , dto) {
@@ -350,7 +350,7 @@ window.onload = loadTable();
                         const jsonDTO = JSON.parse(http.responseText); 
                         if (getVal === "getDataCus") {
                             jsonDTO.map(customer => {
-                                $('#selectCustomerId').append($('<option>').text(`${customer.id}`));
+                                $('#selectCustomerId').append($('<option>').text(`${customer.customerId}`));
                             });
                         } else if(getVal === "getDataItem"){
                             jsonDTO.map(item => {
@@ -378,7 +378,7 @@ window.onload = loadTable();
                     }
                 }
             }
-            http.open(`${methodType}`, `http://localhost:8080/groStore_pos_system_back_end_war_exploded/${mappingType}`, true);
+            http.open(`${methodType}`, `http://localhost:8080/posSystemSpringBack_end_war_exploded/api/v1/${mappingType}`, true);
             if (getVal === "getData") {
                 http.send(); 
             }else{
