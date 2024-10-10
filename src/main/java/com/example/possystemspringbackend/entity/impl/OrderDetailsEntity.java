@@ -20,8 +20,6 @@ public class OrderDetailsEntity {
     private String customerName;
     private String customerCity;
     private String customerTel;
-    @Column(insertable = false, updatable = false)
-    private String itemCode;
     private String itemName;
     private int orderQTY;
     private double unitPrice;
