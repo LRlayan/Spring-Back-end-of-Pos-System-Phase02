@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/orderDetails")
+@CrossOrigin
 public class OrderDetailController {
     @PostMapping
     public void saveOrderDetail(OrderDetailDTO orderDetailDTO) {
