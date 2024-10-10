@@ -41,7 +41,6 @@ public class OrderServiceImpl implements OrderService {
                         orderDetailDTO.getCustomerName(),
                         orderDetailDTO.getCustomerCity(),
                         orderDetailDTO.getCustomerTel(),
-                        orderDetailDTO.getItemCode(),
                         orderDetailDTO.getItemName(),
                         orderDetailDTO.getOrderQTY(),
                         orderDetailDTO.getUnitPrice(),
@@ -69,7 +68,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderDTO> getAllOrder() {
-        return null;
+        return mapping.toOrderList(orderRepository.findAll());
     }
 }
 
