@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -55,7 +56,16 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void updateOrder(String orderId, OrderDTO orderDTO) {
-
+        Optional<OrderEntity> tmpOrder = orderRepository.findById(orderId);
+        if (tmpOrder.isPresent()){
+            tmpOrder.get().setDate(orderDTO.getDate());
+            tmpOrder.get().setDiscountRate(orderDTO.getDiscountRate());
+            tmpOrder.get().setDiscount(orderDTO.getDiscount());
+            tmpOrder.get().setSubTotal(orderDTO.getSubTotal());
+            tmpOrder.get().setBalance(orderDTO.getBalance());
+            tmpOrder.get().setCustomer(mapping.toCustomerEntity(orderDTO.getCustomerId()));
+            tmpOrder.get().setOrderDetailsList(mapping.toOrderEntityList(orderDTO.getOrderDetailDTO()));
+        }
     }
 
     @Override
