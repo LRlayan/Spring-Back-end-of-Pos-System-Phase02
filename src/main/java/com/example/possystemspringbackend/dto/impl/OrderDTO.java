@@ -1,5 +1,6 @@
 package com.example.possystemspringbackend.dto.impl;
 
+import com.example.possystemspringbackend.dto.OrderStatus;
 import com.example.possystemspringbackend.dto.SuperDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class OrderDTO implements SuperDTO {
+public class OrderDTO implements SuperDTO, OrderStatus {
     private String orderID;
     private String date;
     private double discountRate;
