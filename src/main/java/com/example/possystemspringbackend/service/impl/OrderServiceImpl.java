@@ -5,6 +5,7 @@ import com.example.possystemspringbackend.dto.OrderStatus;
 import com.example.possystemspringbackend.dto.impl.OrderDTO;
 import com.example.possystemspringbackend.dto.impl.OrderDetailDTO;
 import com.example.possystemspringbackend.entity.impl.OrderEntity;
+import com.example.possystemspringbackend.exception.CustomerNotFoundException;
 import com.example.possystemspringbackend.exception.DataPersistException;
 import com.example.possystemspringbackend.repository.OrderRepository;
 import com.example.possystemspringbackend.service.OrderDetailService;
@@ -70,7 +71,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void deleteOrder(String orderId) {
-
+        Optional<OrderEntity> tmpOrder = orderRepository.findById(orderId);
+        if (!tmpOrder.isPresent()){
+            throw new CustomerNotFoundException("OrderId with " + orderId + "Not Found!");
+        }else {
+            orderRepository.deleteById(orderId);
+        }
     }
 
     @Override
