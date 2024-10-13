@@ -1,8 +1,11 @@
 package com.example.possystemspringbackend.controller;
 
+import com.example.possystemspringbackend.customStatusCode.ErrorStatus;
+import com.example.possystemspringbackend.dto.OrderStatus;
 import com.example.possystemspringbackend.dto.impl.OrderDTO;
 import com.example.possystemspringbackend.exception.DataPersistException;
 import com.example.possystemspringbackend.service.OrderService;
+import com.example.possystemspringbackend.util.Regex;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,6 +33,14 @@ public class OrderController {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping(value = "/{orderId}")
+    public OrderStatus getOrder(@PathVariable("orderId") String orderId){
+        if (!Regex.orderIdValidate(orderId).matches()){
+            return new ErrorStatus(1,"OrderId is Not valid!");
+        }
+        return orderService.getOrder(orderId);
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
