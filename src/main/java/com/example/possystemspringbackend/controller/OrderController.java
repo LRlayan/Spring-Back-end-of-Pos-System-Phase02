@@ -47,6 +47,21 @@ public class OrderController {
         }
     }
 
+    @DeleteMapping(value = "/{orderId}")
+    public ResponseEntity<Void> deleteOrder(@PathVariable("orderId") String orderId){
+        try{
+            if (!Regex.orderIdValidate(orderId).matches()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            orderService.deleteOrder(orderId);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (DataPersistException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @GetMapping(value = "/{orderId}")
     public OrderStatus getOrder(@PathVariable("orderId") String orderId){
         if (!Regex.orderIdValidate(orderId).matches()){
