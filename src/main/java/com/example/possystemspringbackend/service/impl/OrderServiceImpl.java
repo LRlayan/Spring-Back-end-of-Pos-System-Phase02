@@ -1,5 +1,7 @@
 package com.example.possystemspringbackend.service.impl;
 
+import com.example.possystemspringbackend.customStatusCode.ErrorStatus;
+import com.example.possystemspringbackend.dto.OrderStatus;
 import com.example.possystemspringbackend.dto.impl.OrderDTO;
 import com.example.possystemspringbackend.dto.impl.OrderDetailDTO;
 import com.example.possystemspringbackend.entity.impl.OrderEntity;
@@ -62,8 +64,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderDTO getOrder(String orderId) {
-        return null;
+    public OrderStatus getOrder(String orderId) {
+        if (orderRepository.existsById(orderId)){
+            return mapping.toOrderDTO(orderRepository.getReferenceById(orderId));
+        }else {
+            return new ErrorStatus(2,"Selected order not found");
+        }
     }
 
     @Override
