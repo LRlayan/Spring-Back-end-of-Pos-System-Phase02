@@ -1,11 +1,12 @@
-### API Overview
+## API Overview
 - **This API is designed to be easy to integrate with front-end applications, mobile apps, or other third-party services to facilitate grocery store operations in a reliable and scalable manner. This project is a RESTful API for a POS system. For detailed API usage, please refer to the API Documentation.
   
-## Table of Contents
+### Table of Contents
 
-- [Features](#features)
+- [Key Features](#keyfeatures)
 - [Technologies Used](#technologies-used)
 - [API Documentation](#api-documentation)
+- [Conclusion](#Conclusion)
 
 ---
 
@@ -357,6 +358,8 @@
         "balance": 970.0
       }
     ]
+
+---
 
 ## Conclusion
 
