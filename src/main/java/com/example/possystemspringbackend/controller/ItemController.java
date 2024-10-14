@@ -3,6 +3,7 @@ package com.example.possystemspringbackend.controller;
 import com.example.possystemspringbackend.customStatusCode.ErrorStatus;
 import com.example.possystemspringbackend.dto.CustomerStatus;
 import com.example.possystemspringbackend.dto.ItemStatus;
+import com.example.possystemspringbackend.dto.impl.CustomerDTO;
 import com.example.possystemspringbackend.dto.impl.ItemDTO;
 import com.example.possystemspringbackend.exception.DataPersistException;
 import com.example.possystemspringbackend.service.ItemService;
@@ -29,14 +30,14 @@ public class ItemController {
         itemDTO.setItemCode(itemDTO.getItemCode());
         try{
             itemService.saveItem(itemDTO);
-            logger.error("Created!");
+            logger.info("Item created successfully with item code: {}", itemDTO.getItemCode());
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistException e){
-            logger.error("Bad Request!");
+            logger.warn("Failed to create item: Bad Request. Item code: {}", itemDTO.getItemCode());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
             e.printStackTrace();
-            logger.error("Internal Server Error!");
+            logger.error("Internal server error while creating item with item code: {}", itemDTO.getItemCode(), e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -45,13 +46,13 @@ public class ItemController {
     public ResponseEntity<Void> updateItem(@PathVariable("itemCode") String itemCode,@RequestBody ItemDTO itemDTO){
         try{
             itemService.updateItem(itemCode,itemDTO);
-            logger.error("Update Item!");
+            logger.info("Item with code {} updated successfully.", itemCode);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistException e){
-            logger.error("Bad Request!");
+            logger.warn("Failed to update item with code {}: Bad Request.", itemCode);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
-            logger.error("Internal Server Error!");
+            logger.error("Internal server error while updating item with code {}.", itemCode, e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -60,16 +61,17 @@ public class ItemController {
     public ResponseEntity<Void> deleteItem(@PathVariable("itemCode") String itemCode){
         try{
             if (!Regex.itemCodeValidate(itemCode).matches()) {
+                logger.warn("Invalid item code: {}", itemCode);
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
             itemService.deleteItem(itemCode);
-            logger.error("Remove Item!");
+            logger.info("Item with code {} deleted successfully.", itemCode);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (DataPersistException e){
-            logger.error("Not Found!");
+            logger.warn("Item with code {} not found.", itemCode);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }catch (Exception e){
-            logger.error("Internal Server Error!");
+            logger.error("Internal server error while deleting item with code {}.", itemCode, e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -77,14 +79,26 @@ public class ItemController {
     @GetMapping(value = "/{itemCode}")
     public ItemStatus getSelectedItem(@PathVariable("itemCode") String itemCode){
         if (!Regex.itemCodeValidate(itemCode).matches()){
-            logger.error("ItemCode is Note valid!");
+            logger.warn("Invalid item code: {}", itemCode);
             return new ErrorStatus(1,"Item Code is Not valid!");
         }
         return itemService.getItem(itemCode);
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ItemDTO> getAllItem(){
-        return itemService.getAllItem();
+    public ResponseEntity<List<ItemDTO>> getAllItem(){
+        try{
+            List<ItemDTO> itemsList = itemService.getAllItem();
+            if (itemsList.isEmpty()) {
+                logger.warn("No item found.");
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            } else {
+                logger.info("Successfully retrieved all items, total: {}", itemsList.size());
+                return new ResponseEntity<>(itemsList, HttpStatus.OK);
+            }
+        }catch (Exception e) {
+            logger.error("Error retrieving item list", e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

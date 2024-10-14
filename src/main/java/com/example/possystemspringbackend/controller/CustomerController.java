@@ -29,14 +29,14 @@ public class CustomerController {
         customerDTO.setCustomerId(customerDTO.getCustomerId());
         try{
             customerService.saveCustomer(customerDTO);
-            logger.error("Customer Saved!");
+            logger.info("Customer with ID: {} saved successfully", customerDTO.getCustomerId());
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistException e){
-            logger.error("Bad Request!");
+            logger.error("Failed to save customer: Bad Request", e);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
             e.printStackTrace();
-            logger.error("Internal Server Error!");
+            logger.error("Internal Server Error while saving customer", e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -45,13 +45,13 @@ public class CustomerController {
     public ResponseEntity<Void> updateCustomer(@PathVariable("customerId") String customerId,@RequestBody CustomerDTO customerDTO){
         try{
             customerService.updateCustomer(customerId,customerDTO);
-            logger.error("Update Customer!");
+            logger.info("Customer with ID: {} updated successfully", customerId);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistException e){
-            logger.error("Bad Request!");
+            logger.error("Failed to update customer: Bad Request", e);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
-            logger.error("Internal Server Error!");
+            logger.error("Internal Server Error while updating customer", e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -60,32 +60,51 @@ public class CustomerController {
     public ResponseEntity<Void> deleteCustomer(@PathVariable("customerId") String customerId){
         try{
             if (!Regex.customerIdValidate(customerId).matches()) {
-                logger.error("Bad Request!");
+                logger.error("Bad Request: Invalid customer ID format - {}", customerId);
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
             customerService.deleteCustomer(customerId);
-            logger.error("Delete Customer!");
+            logger.info("Customer with ID: {} deleted successfully", customerId);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (DataPersistException e){
-            logger.error("Not Found!");
+            logger.error("Customer with ID: {} not found", customerId, e);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }catch (Exception e){
-            logger.error("Internal Server Error!");
+            logger.error("Internal Server Error while deleting customer with ID: {}", customerId, e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping(value = "/{customerId}")
     public CustomerStatus getSelectedCustomer(@PathVariable("customerId") String customerId){
+        logger.error("Invalid Customer ID format: {}", customerId);
         if (!Regex.customerIdValidate(customerId).matches()){
             logger.error("Customer ID is Not valid!");
             return new ErrorStatus(1,"Customer ID is Not valid!");
         }
-        return customerService.getCustomer(customerId);
+        CustomerStatus customerStatus = customerService.getCustomer(customerId);
+        if (customerStatus instanceof ErrorStatus) {
+            logger.warn("Customer with ID: {} not found", customerId);
+        } else {
+            logger.info("Customer with ID: {} retrieved successfully", customerId);
+        }
+        return customerStatus;
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<CustomerDTO> getAllCustomers(){
-        return customerService.getAllCustomer();
+    public ResponseEntity<List<CustomerDTO>> getAllCustomers(){
+        try {
+            List<CustomerDTO> customers = customerService.getAllCustomer();
+            if (customers.isEmpty()) {
+                logger.warn("No customers found.");
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            } else {
+                logger.info("Successfully retrieved all customers, total: {}", customers.size());
+                return new ResponseEntity<>(customers, HttpStatus.OK);
+            }
+        } catch (Exception e) {
+            logger.error("Error retrieving customer list", e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
