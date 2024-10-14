@@ -10459,3 +10459,15 @@ java.net.URLClassLoader@1e4a7dd4
 15:04:10.588 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -- Using 'application/json', given [*/*] and supported [application/json]
 15:04:10.588 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -- Nothing to write: null body
 15:04:10.588 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet -- Completed 204 NO_CONTENT
+15:06:34.948 [main] DEBUG o.s.w.c.s.AnnotationConfigWebApplicationContext -- Closing WebApplicationContext for namespace 'dispatcher-servlet', started on Mon Oct 14 15:02:31 IST 2024, parent: Root WebApplicationContext
+15:06:34.952 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -- Closing JPA EntityManagerFactory for persistence unit 'default'
+15:06:34.952 [main] DEBUG o.h.internal.SessionFactoryImpl -- HHH000031: Closing
+15:06:34.953 [main] DEBUG o.h.type.spi.TypeConfiguration$Scope -- Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@26adfd2d] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@282ed72e]
+15:06:34.953 [main] DEBUG o.h.s.i.AbstractServiceRegistryImpl -- Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+15:06:34.954 [main] DEBUG o.h.b.r.i.BootstrapServiceRegistryImpl -- Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+15:06:34.956 [main] DEBUG o.s.w.c.s.AnnotationConfigWebApplicationContext -- Closing Root WebApplicationContext, started on Mon Oct 14 15:02:18 IST 2024
+15:06:34.956 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -- Closing JPA EntityManagerFactory for persistence unit 'default'
+15:06:34.957 [main] DEBUG o.h.internal.SessionFactoryImpl -- HHH000031: Closing
+15:06:34.957 [main] DEBUG o.h.type.spi.TypeConfiguration$Scope -- Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@6950ed69] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@59ac718c]
+15:06:34.957 [main] DEBUG o.h.s.i.AbstractServiceRegistryImpl -- Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+15:06:34.957 [main] DEBUG o.h.b.r.i.BootstrapServiceRegistryImpl -- Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
