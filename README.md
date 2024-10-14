@@ -38,22 +38,87 @@
     {
       "itemCode": "I001",
       "name": "Product A",
-      "description": "Description of product A",
-      "price": 100.0,
-      "quantity": 10
+      "quantity": 10,
+      "price": 100.0 
     }
    
--####Response
-```json
-{
-  "message": "Item created successfully",
-  "item": {
-    "itemCode": "I001",
-    "name": "Product A",
-    "description": "Description of product A",
-    "price": 100.0,
-    "quantity": 10
-  }
-}
+- **Response(201 Created)
+    ```json
+    {
+      "message": "Item created successfully",
+      "item": {
+        "itemCode": "I001",
+        "name": "Product A",
+        "quantity": 10,
+        "price": 100.0
+      }
+    }
 
+### 1.2 Update an Item
+**Endpoint**: `PUT api/v1/items/{itemCode}`
+
+- **Description**: Updates the details of an existing item.
+- **Request Body** (JSON):
+    ```json
+    {
+      "name": "Product B",
+      "price": 110.0,
+      "quantity": 12
+    }
+
+- **Response(204 No Content)
+    ```json
+    {
+      "message": "Item updated successfully",
+      "item": {
+        "itemCode": "I001",
+        "name": "Product B",
+        "quantity": 12,
+        "price": 110.0
+      }
+    }
+
+### 1.3 Delete an Item
+**Endpoint**: `DELETE api/v1/items/{itemCode}`
+
+- **Description**: Deletes a specific item from the inventory.
+- **Response(204 No Content)
+    ```json
+    {
+      "message": "Item deleted successfully"
+    }
+
+### 1.4 Get a Specific Item
+**Endpoint**: `GET api/v1/items/{itemCode}`
+
+- **Description**: Retrieves details of a specific item by its item code.
+- **Response (200 OK):
+    ```json
+    {
+      "itemCode": "I001",
+      "name": "Product A",
+      "quantity": 10,
+      "price": 100.0
+    }
+
+### 1.5 Get All Items
+**Endpoint**: `GET api/v1/items`
+
+- **Description**: Retrieves all available items in the inventory.
+- **Response (200 OK):
+    ```json
+    [
+      {
+        "itemCode": "I001",
+        "name": "Product A",
+        "quantity": 10,
+        "price": 100.0
+      },
+      {
+        "itemCode": "I002",
+        "name": "Product B",
+        "quantity": 5,
+        "price": 150.0
+      }
+    ]
 
