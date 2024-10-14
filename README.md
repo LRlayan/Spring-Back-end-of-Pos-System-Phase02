@@ -35,16 +35,15 @@
 - **Description**: Creates a new item in the system.
 - **Request Body** (JSON):
   ```json
-{
+  {
     "itemCode": "I001",
     "name": "Product A",
     "description": "Description of product A",
     "price": 100.0,
     "quantity": 10
   }
-
--Response (201 Created):
-{
+  -####Response
+  {
   "message": "Item created successfully",
   "item": {
     "itemCode": "I001",
@@ -54,4 +53,6 @@
     "quantity": 10
   }
 }
+
+
 
