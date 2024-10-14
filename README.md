@@ -1,4 +1,4 @@
-**### API Overview**
+### API Overview
 
 ### Key Features:
 - **Item Management**: Create, update, retrieve, and delete items in the store's inventory.
