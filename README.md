@@ -1,14 +1,11 @@
 ### API Overview
-
+- **This API is designed to be easy to integrate with front-end applications, mobile apps, or other third-party services to facilitate grocery store operations in a reliable and scalable manner. This project is a RESTful API for a POS system. For detailed API usage, please refer to the [API Documentation](API_Documentation.md).
+  
 ## Table of Contents
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Running the Application](#running-the-application)
 - [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
@@ -26,6 +23,16 @@
 - **Containerization**: Tomcat 11 (optional)
 - **Java Version**: 21
 
-This API is designed to be easy to integrate with front-end applications, mobile apps, or other third-party services to facilitate grocery store operations in a reliable and scalable manner.
+---
 
+### API Documentation
+
+## 1. **Items API**
+
+### 1.1 Create a New Item
+**Endpoint**: `POST /items`
+
+- **Description**: Creates a new item in the system.
+- **Request Body** (JSON):
+  ```json
 
