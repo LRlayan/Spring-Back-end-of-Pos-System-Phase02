@@ -241,6 +241,7 @@
         }
       ],
       "orderDetailsList": [
+        {
           "id":"ORDER_DETAIL-351582dsfds65sc46scs8s8",
           "date":"2024-10-14",
           "customerId":"C00-001",
@@ -259,7 +260,9 @@
             }
           ],
           "order": [
+            {
               "orderId": "O-01"
+            }
           ]
       }
    
