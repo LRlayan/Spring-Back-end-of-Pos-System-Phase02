@@ -25,7 +25,7 @@ $('#submitStore').on('click' , ()=>{
 
     let code = $('#itemCode').val();
     let name = $('#itemName').val();
-    let qTYOnHand = $('#inputQTY').val();
+    let qtyOnHand = $('#inputQTY').val();
     let price = $('#unitPrice').val();
 
     // let storeDetail = new Store(itemCode,itemName,QTYOnHand,unitPrice);
@@ -33,7 +33,7 @@ $('#submitStore').on('click' , ()=>{
     const ItemDTO = {
         itemCode : code,
         itemName : name,
-        QTYOnHand : qTYOnHand,
+        qtyOnHand : qtyOnHand,
         unitPrice : price
     }
 
@@ -65,13 +65,13 @@ $('#updateS').on('click' , ()=>{
     event.preventDefault();
     let itemCode = $('#itemCodeS').val();
     let itemName = $('#itemNameS').val();
-    let QTYOnHand = $('#qty').val();
+    let qtyOnHand = $('#qty').val();
     let unitPrice = $('#priceS').val();
 
     let ItemDTO = {
         itemCode : itemCode,
         itemName : itemName,
-        QTYOnHand : QTYOnHand,
+        qtyOnHand : qtyOnHand,
         unitPrice : unitPrice
     }
 
@@ -128,7 +128,7 @@ function valuesGetOrSendInDatabase(ItemDTO , methodType , endPointWithpathVariab
                         let record = `<tr>
                                                 <td class="s-code orderTableBody">${storeDetails.itemCode}</td>  
                                                 <td class="s-name orderTableBody">${storeDetails.itemName}</td>  
-                                                <td class="s-qty orderTableBody">${storeDetails.QTYOnHand}</td>  
+                                                <td class="s-qty orderTableBody">${storeDetails.qtyOnHand}</td>  
                                                 <td class="s-price orderTableBody">${storeDetails.unitPrice}</td>  
                                             </tr>`
                         $('#storeTable').append(record);

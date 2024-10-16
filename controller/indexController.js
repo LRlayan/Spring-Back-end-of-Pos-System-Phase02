@@ -216,7 +216,7 @@ $('#updateOrderDetail').on('click' , ()=>{
         balance:price
     }
 
-    valuesGetOrSendInDatabase("order" , "PUT" , "" , OrderDTO);
+    valuesGetOrSendInDatabase("orders" , "PUT" , "" , OrderDTO);
     // let orderDetail = orders[clickOrderTableRow]
     // orderDetail.orderId = orderId;
     // orderDetail.date = date;
@@ -241,13 +241,13 @@ $('#removeOrder').on('click',()=>{
         orderID:orderId
     }
 
-    valuesGetOrSendInDatabase("order","DELETE","",OrderDTO);
+    valuesGetOrSendInDatabase("orders","DELETE","",OrderDTO);
     loadTable();
     clearForm();
 })
 
 function loadTable() {
-    valuesGetOrSendInDatabase("order","GET","getData");
+    valuesGetOrSendInDatabase("orders","GET","getData");
 }
 
 function valuesGetOrSendInDatabase(mappingType , methodType , getVal , dto) {
@@ -290,7 +290,7 @@ function valuesGetOrSendInDatabase(mappingType , methodType , getVal , dto) {
                 }
             }
         }
-        http.open(`${methodType}`, `http://localhost:8080/groStore_pos_system_back_end_war_exploded/${mappingType}`, true);
+        http.open(`${methodType}`, `http://localhost:8080/posSystemSpringBack_end_war_exploded/api/v1/${mappingType}`, true);
         if (getVal === "getData") {
             http.send(); 
         }else{

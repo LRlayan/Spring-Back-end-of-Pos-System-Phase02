@@ -1,5 +1,5 @@
 import Order from "../model/Order.js";
-import {orders,store,itemQtydetails,itemNames} from "../db/DB.js"
+import {orders,store,itemQtydetails,itemNames,customer} from "../db/DB.js"
 // import { updateStoreQuantities } from "./StoreController";
 
 let uniPrice = 0;
@@ -96,7 +96,7 @@ window.onload = loadTable();
             jsonDTO.forEach(item => {
                 if (selectedValue === item.itemCode){
                     $('#itemNameP').val(item.itemName);
-                    $('#qtyOnHandP').val(item.QTYOnHand);
+                    $('#qtyOnHandP').val(item.qtyOnHand);
                     $('#inputPriceP').val(item.unitPrice);
                     uniPrice = item.unitPrice;
                 }
@@ -145,7 +145,7 @@ window.onload = loadTable();
             type:ItemDTO.type,
             itemCode:itemCode,
             itemName:iName,
-            QTYOnHand:newQTY,
+            qtyOnHand:newQTY,
             unitPrice:uniPrice
         }
 
@@ -194,7 +194,11 @@ window.onload = loadTable();
             }
         });
 
-        let orderData = {
+        let items = {
+            itemCode:itemCode,
+        }
+
+        let orderDetailDTO = {
             orderId:orId,
             date:dates,
             customerId:customerId,
@@ -204,9 +208,10 @@ window.onload = loadTable();
             itemCode:itemCode,
             itemName:iName,
             orderQTY:orderQty,
-            unitPrice:uniPrice
+            unitPrice:uniPrice,
+            item:items
         }
-        store.push(orderData);
+        store.push(orderDetailDTO);
         itemNames.push(itemName.text());
 
         // Append elements to the container
@@ -286,6 +291,10 @@ window.onload = loadTable();
         var subTotal = subTotal;
         var total = parseFloat($('#balance').text());
 
+        let customers = {
+            customerId:customerId
+        }
+
         const OrderDTO = {
             orderID:orderId,
             date:date,
@@ -294,7 +303,8 @@ window.onload = loadTable();
             discount:discount,
             subTotal:subTot,
             balance:total,
-            orderDetailDTO: store
+            customerId:customers,
+            orderDetailDTO:store
         }
         
         valuesGetOrSendInDatabase("orders","POST","",OrderDTO);
@@ -418,8 +428,8 @@ function cancel(){
         for (let i = 0; i < store.length; i++) {
             if ($('#selectItemCode').val() === store[i].itemCode){
                 $('#QTYOnHandP').empty();
-                $('#qtyOnHandP').val(store[i].QTYOnHand);
-                setReduceQTY = store[i].QTYOnHand;
+                $('#qtyOnHandP').val(store[i].qtyOnHand);
+                setReduceQTY = store[i].qtyOnHand;
             }
         }
 }
