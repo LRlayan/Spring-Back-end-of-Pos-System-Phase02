@@ -5,8 +5,8 @@ import com.example.possystemspringbackend.dto.OrderStatus;
 import com.example.possystemspringbackend.dto.impl.OrderDTO;
 import com.example.possystemspringbackend.dto.impl.OrderDetailDTO;
 import com.example.possystemspringbackend.entity.impl.OrderEntity;
-import com.example.possystemspringbackend.exception.CustomerNotFoundException;
 import com.example.possystemspringbackend.exception.DataPersistException;
+import com.example.possystemspringbackend.exception.OrderNotFoundException;
 import com.example.possystemspringbackend.repository.OrderRepository;
 import com.example.possystemspringbackend.service.OrderDetailService;
 import com.example.possystemspringbackend.service.OrderService;
@@ -86,7 +86,7 @@ public class OrderServiceImpl implements OrderService {
         Optional<OrderEntity> tmpOrder = orderRepository.findById(orderId);
         if (!tmpOrder.isPresent()){
             logger.error("Order with ID: {} not found for deletion", orderId);
-            throw new CustomerNotFoundException("OrderId with " + orderId + "Not Found!");
+            throw new OrderNotFoundException("OrderId with " + orderId + "Not Found!");
         }else {
             orderRepository.deleteById(orderId);
             logger.info("Order with ID: {} has been deleted successfully", orderId);
