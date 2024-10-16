@@ -1,7 +1,5 @@
 package com.example.possystemspringbackend.util;
 
-import org.springframework.http.HttpMethod;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

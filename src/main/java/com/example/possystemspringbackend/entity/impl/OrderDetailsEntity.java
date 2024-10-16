@@ -23,7 +23,7 @@ public class OrderDetailsEntity {
     private String itemName;
     private int orderQTY;
     private double unitPrice;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "itemCode",referencedColumnName = "itemCode",nullable = false)
     private ItemEntity item;
     @ManyToOne(cascade = CascadeType.ALL)
