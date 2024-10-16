@@ -24,9 +24,9 @@ public class OrderDetailsEntity {
     private int orderQTY;
     private double unitPrice;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "itemCode",referencedColumnName = "itemCode")//duplicate column mapping
+    @JoinColumn(name = "itemCode",referencedColumnName = "itemCode",nullable = false)
     private ItemEntity item;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "orderID")
+    @JoinColumn(name = "orderID",nullable = false)
     private OrderEntity order;
 }
