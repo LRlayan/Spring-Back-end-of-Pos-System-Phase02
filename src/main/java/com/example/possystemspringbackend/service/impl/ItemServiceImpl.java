@@ -45,7 +45,7 @@ public class ItemServiceImpl implements ItemService {
         Optional<ItemEntity> tmpItem = itemRepository.findById(itemCode);
         if (tmpItem.isPresent()){
             tmpItem.get().setItemName(itemDTO.getItemName());
-            tmpItem.get().setQTYOnHand(itemDTO.getQTYOnHand());
+            tmpItem.get().setQtyOnHand(itemDTO.getQtyOnHand());
             tmpItem.get().setUnitPrice(itemDTO.getUnitPrice());
             logger.info("Item with code: {} has been updated successfully", itemCode);
         } else {
