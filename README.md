@@ -17,11 +17,11 @@
 - **Transactions**: Supports complex transactional operations, ensuring data integrity when placing and managing orders.
 
 ### Technologies Used:
-- **Backend Framework**: Spring Boot with Jakarta EE integration.
+- **Backend Framework**: Spring with Jakarta EE integration.
 - **Database**: MySQL for persistent data storage.
 - **Versioning**: v1 (future updates may introduce new versions).
 - **Build Tool**: Maven
-- **Containerization**: Tomcat 11 (optional)
+- **Containerization**: Tomcat 11
 - **Java Version**: 21
 
 ---
