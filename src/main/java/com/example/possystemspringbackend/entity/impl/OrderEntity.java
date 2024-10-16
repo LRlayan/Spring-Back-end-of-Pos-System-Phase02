@@ -23,7 +23,7 @@ public class OrderEntity implements SuperEntity {
     private double subTotal;
     private double balance;
     @ManyToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "customerId")
+    @JoinColumn(name = "customerId",nullable = false)
     private CustomerEntity customer;
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private List<OrderDetailsEntity> orderDetailsList;
