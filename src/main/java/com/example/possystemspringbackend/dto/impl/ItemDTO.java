@@ -14,7 +14,7 @@ import java.util.List;
 public class ItemDTO implements SuperDTO , ItemStatus {
     private String itemCode;
     private String itemName;
-    private int QTYOnHand;
+    private int qtyOnHand;
     private double unitPrice;
     private List<OrderDetailDTO> orderList;
 }

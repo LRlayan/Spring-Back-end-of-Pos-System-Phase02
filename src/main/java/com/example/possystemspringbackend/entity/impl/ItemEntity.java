@@ -16,7 +16,7 @@ public class ItemEntity implements SuperEntity {
     @Id
     private String itemCode;
     private String itemName;
-    private int QTYOnHand;
+    private int qtyOnHand;
     private double unitPrice;
     @OneToMany(mappedBy = "item",cascade = CascadeType.ALL)
     private List<OrderDetailsEntity> orderList;
