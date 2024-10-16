@@ -1,5 +1,5 @@
 ## API Overview
-- **This API is designed to be easy to integrate with front-end applications, mobile apps, or other third-party services to facilitate grocery store operations in a reliable and scalable manner. This project is a RESTful API for a POS system. For detailed API usage, please refer to the API Documentation.
+- This API is designed to be easy to integrate with front-end applications, mobile apps, or other third-party services to facilitate grocery store operations in a reliable and scalable manner. This project is a RESTful API for a POS system. For detailed API usage, please refer to the API Documentation.
   
 ### Table of Contents
 
@@ -17,11 +17,11 @@
 - **Transactions**: Supports complex transactional operations, ensuring data integrity when placing and managing orders.
 
 ### Technologies Used:
-- **Backend Framework**: Spring Boot with Jakarta EE integration.
+- **Backend Framework**: Spring with Jakarta EE integration.
 - **Database**: MySQL for persistent data storage.
 - **Versioning**: v1 (future updates may introduce new versions).
 - **Build Tool**: Maven
-- **Containerization**: Tomcat 11 (optional)
+- **Containerization**: Tomcat 11
 - **Java Version**: 21
 
 ---
